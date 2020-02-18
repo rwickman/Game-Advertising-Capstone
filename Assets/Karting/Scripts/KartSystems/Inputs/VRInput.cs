@@ -59,13 +59,15 @@ namespace KartGame.KartSystems
         {
             float rot_angle = Vector3.Dot(m_Camera.transform.right, -transform.up);
             float rot_z = Mathf.Abs(rot_angle) > minTurnThreshold ? rot_angle : 0f;
+            
+            
             if (rot_z > 0)
             {   
-                m_Steering = 1f;
+                m_Steering = Mathf.Min(1f, rot_z + 0.2f);
             }
             else if (rot_z < 0)
             {
-                m_Steering = -1f;
+                m_Steering = Mathf.Max(-11f, rot_z - 0.2f);
             }
             else
             {
