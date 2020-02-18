@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/GoogleVRScene.unity
+    guid: 7b4f920d02db0df4587d2d7c1b6aaa09
   m_configObjects: {}
