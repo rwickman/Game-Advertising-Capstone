@@ -46,6 +46,7 @@ namespace KartGame.KartSystems
 
         public float minTurnThreshold = 0.05f;
         public float steeringFactor = 1;
+        public float steerAdditive = 0.3f;
         //Vector3 camLeft;
         Vector3 camRight;
         void Start()
@@ -63,11 +64,11 @@ namespace KartGame.KartSystems
             
             if (rot_z > 0)
             {   
-                m_Steering = Mathf.Min(1f, rot_z + 0.2f);
+                m_Steering = Mathf.Min(1f, rot_z + steerAdditive);
             }
             else if (rot_z < 0)
             {
-                m_Steering = Mathf.Max(-11f, rot_z - 0.2f);
+                m_Steering = Mathf.Max(-1f, rot_z - steerAdditive);
             }
             else
             {

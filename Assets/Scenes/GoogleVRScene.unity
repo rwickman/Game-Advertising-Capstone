@@ -17463,6 +17463,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4732319057349020920, guid: 27e20a5d0475e0441bc3fcf3a9868ebc,
+        type: 3}
+      propertyPath: minTurnThreshold
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 4732319057841519193, guid: 27e20a5d0475e0441bc3fcf3a9868ebc,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8473341978263984482, guid: 27e20a5d0475e0441bc3fcf3a9868ebc,
         type: 3}
       propertyPath: m_LocalPosition.x
