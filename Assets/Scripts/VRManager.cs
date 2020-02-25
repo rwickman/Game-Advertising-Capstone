@@ -7,7 +7,7 @@ using UnityEngine.XR;
 public class VRManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         StartCoroutine(SwitchToVR());
     }
@@ -15,7 +15,7 @@ public class VRManager : MonoBehaviour
     IEnumerator SwitchToVR()
     {
         // Device names are lowercase, as returned by `XRSettings.supportedDevices`.
-        string desiredDevice = "cardboard"; // Or "cardboard".
+        string desiredDevice = "cardboard";
 
         // Some VR Devices do not support reloading when already active, see
         // https://docs.unity3d.com/ScriptReference/XR.XRSettings.LoadDeviceByName.html
