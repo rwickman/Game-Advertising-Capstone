@@ -33,25 +33,21 @@ namespace KartGame.KartSystems
             get { return m_HopHeld; }
         }
 
-        float m_Acceleration;
+        float m_Acceleration = 1f;
         float m_Steering;
         bool m_HopPressed;
         bool m_HopHeld;
         bool m_BoostPressed;
         bool m_FirePressed;
+        float rotationMod = (float)2.3;
 
         bool m_FixedUpdateHappened;
 
         void Update()
         {
-            if (CrossPlatformInputManager.GetButton("Brake"))
-                m_Acceleration = -1f;
-            else if (CrossPlatformInputManager.GetButton("Accelerate"))
-                m_Acceleration = 1f;
-            else
-                m_Acceleration = 0f;
-            //Multiplying acceleration for easy of turning so user won't have to turn phone as sharply
-            m_Steering = Input.acceleration.x * 3;
+
+            m_Steering = -Input.acceleration.x * rotationMod;
+            print(m_Steering);
 
             m_HopHeld = Input.GetButton("Hop");
 
