@@ -176,6 +176,7 @@ namespace KartGame.KartSystems
             StopDrift (deltaTime);
 
             CalculateDrivingVelocity (deltaTime, m_CurrentGroundInfo, rotationStream);
+            print("VEL BEFORE " + m_Velocity);
 
             Vector3 penetrationOffset = SolvePenetration (rotationStream);
             penetrationOffset = ProcessVelocityCollisions (deltaTime, rotationStream, penetrationOffset);
@@ -183,7 +184,7 @@ namespace KartGame.KartSystems
             rotationStream = Quaternion.RotateTowards (m_Rigidbody.rotation, rotationStream, rotationCorrectionSpeed * deltaTime);
             
             AdjustVelocityByPenetrationOffset (deltaTime, ref penetrationOffset);
-            
+            print("VEL AFTER " + m_Velocity);
             m_Rigidbody.MoveRotation (rotationStream);
             m_Rigidbody.MovePosition (m_RigidbodyPosition + m_Movement);
         }
