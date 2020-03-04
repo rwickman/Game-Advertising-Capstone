@@ -183,7 +183,6 @@ namespace KartGame.KartSystems
             rotationStream = Quaternion.RotateTowards (m_Rigidbody.rotation, rotationStream, rotationCorrectionSpeed * deltaTime);
             
             AdjustVelocityByPenetrationOffset (deltaTime, ref penetrationOffset);
-            
             m_Rigidbody.MoveRotation (rotationStream);
             m_Rigidbody.MovePosition (m_RigidbodyPosition + m_Movement);
         }
