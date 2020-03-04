@@ -261,7 +261,6 @@ GameObject:
   - component: {fileID: 4732319057841519195}
   - component: {fileID: 4732319057841519194}
   - component: {fileID: 4732319057841519173}
-  - component: {fileID: 4732319057841519193}
   - component: {fileID: 4732319057841519198}
   - component: {fileID: 4732319057841519199}
   - component: {fileID: 4732319057841519192}
@@ -337,66 +336,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4732319057841519172}
   m_Enabled: 1
---- !u!114 &4732319057841519193
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4732319057841519172}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  volumeTrigger: {fileID: 4732319057841519195}
-  volumeLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  stopNaNPropagation: 1
-  finalBlitToCameraTarget: 1
-  antialiasingMode: 1
-  temporalAntialiasing:
-    jitterSpread: 0.75
-    sharpness: 0.25
-    stationaryBlending: 0.95
-    motionBlending: 0.85
-  subpixelMorphologicalAntialiasing:
-    quality: 2
-  fastApproximateAntialiasing:
-    fastMode: 1
-    keepAlpha: 0
-  fog:
-    enabled: 1
-    excludeSkybox: 1
-  debugLayer:
-    lightMeter:
-      width: 512
-      height: 256
-      showCurves: 1
-    histogram:
-      width: 512
-      height: 256
-      channel: 3
-    waveform:
-      exposure: 0.12
-      height: 256
-    vectorscope:
-      size: 256
-      exposure: 0.12
-    overlaySettings:
-      linearDepth: 0
-      motionColorIntensity: 4
-      motionGridSize: 64
-      colorBlindnessType: 0
-      colorBlindnessStrength: 1
-  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
-  m_ShowToolkit: 1
-  m_ShowCustomSorter: 1
-  breakBeforeColorGrading: 0
-  m_BeforeTransparentBundles: []
-  m_BeforeStackBundles: []
-  m_AfterStackBundles: []
 --- !u!114 &4732319057841519198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -474,14 +413,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8473341978263984482}
-  - component: {fileID: 128070908467879207}
   - component: {fileID: 8473341978263984487}
   - component: {fileID: 8473341978263984488}
   - component: {fileID: 7140924316387487319}
   - component: {fileID: 4732319058103904188}
   - component: {fileID: 8473341978263984491}
-  - component: {fileID: 4732319057349020923}
   - component: {fileID: 4732319057349020920}
+  - component: {fileID: 4732319058197050796}
   m_Layer: 0
   m_Name: VRKart
   m_TagString: Untagged
@@ -513,18 +451,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &128070908467879207
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8473341978263984489}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e386cd524bdcae4e9d79c3ffab5a4bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &8473341978263984487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -712,19 +638,6 @@ MonoBehaviour:
     wheelTransform: {fileID: 9177856442972353433}
     axelAxis: {x: 1, y: 0, z: 0}
     steeringAxis: {x: 0, y: 0, z: 0}
---- !u!114 &4732319057349020923
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8473341978263984489}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8534e17a0f90604c9afd4f5c73d829f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Id: b813da5b-b190-4543-a594-de3a2cdd433a
 --- !u!114 &4732319057349020920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -737,8 +650,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51c52e7555efb4f4aa07e2f9b5d89944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minTurnThreshold: 0.03
+  minTurnThreshold: 0.05
   steeringFactor: 1
+  steerAdditive: 0.3
+--- !u!114 &4732319058197050796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8473341978263984489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f981a5a0ad2ed844d8049965e5d8df3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8534517398113226447
 GameObject:
   m_ObjectHideFlags: 0
