@@ -47,7 +47,6 @@ namespace KartGame.KartSystems
         {
 
             m_Steering = -Input.acceleration.x * rotationMod;
-            print(m_Steering);
 
             m_HopHeld = Input.GetButton("Hop");
 

@@ -84,7 +84,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3763822634849867148}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b465c33664cb50e4e8c1ba2c937b27f9, type: 3}
   m_Name: 
@@ -142,7 +142,7 @@ MonoBehaviour:
     hopHeight: 4
     reverseAcceleration: 3
     reverseSpeed: 5
-    topSpeed: 25
+    topSpeed: 20
     turnSpeed: 60
     weight: 3
   groundLayers:

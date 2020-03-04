@@ -9,9 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Title.unity
     guid: 063d2b7ccbfeff942b9bf9941ab15311
   - enabled: 1
-    path: Assets/Scenes/Racetrack 1.unity
-    guid: f8c7069e6d9b2124b861144ca83d31e8
+    path: Assets/Scenes/Level1.unity
+    guid: 9775910a99bafd041a6f8ddeab9057c0
   - enabled: 1
-    path: Assets/Scenes/GoogleVRScene.unity
-    guid: 7b4f920d02db0df4587d2d7c1b6aaa09
+    path: Assets/Scenes/Level2.unity
+    guid: ac677af2600b9c049b620c03439df4df
   m_configObjects: {}
