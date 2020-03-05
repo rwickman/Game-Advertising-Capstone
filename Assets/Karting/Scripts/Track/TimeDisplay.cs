@@ -108,7 +108,12 @@ namespace KartGame.Track
                 }
             }
 
-            m_Racer = (IRacer)initialRacer;
+            
+        }
+
+        public void SetRacer(IRacer racer)
+        {
+            m_Racer = racer;
         }
 
         void Update()

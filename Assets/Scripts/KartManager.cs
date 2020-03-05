@@ -25,6 +25,7 @@ public class KartManager : MonoBehaviour
 
     public void InitLevel(string sceneName)
     {
+        print("InitLevel");
         GameObject trackManagerGO = GameObject.Find("TrackManager");
         GameObject displayGO = GameObject.Find("TimeDisplayCanvas");
 
@@ -53,14 +54,15 @@ public class KartManager : MonoBehaviour
         
         // Add kart references to classes that require it
         KartMovement movement = kartGO.GetComponent<KartMovement>();
+        Racer racer = kartGO.GetComponent<Racer>();
         KartRepositionTrigger kartRepoTrig = trackManagerGO.GetComponent<KartRepositionTrigger>();
         TimeDisplay display = displayGO.GetComponent<TimeDisplay>();
         AudioSource audio = GameObject.Find("BackgroundMusic").GetComponent<AudioSource>();
         audio.enabled = true;
         audio.Play();
 
-        kartRepoTrig.movable = movement;
-        display.initialRacer = movement;
+        kartRepoTrig.SetMovable(movement);
+        display.SetRacer(racer);
 
         display.enabled = true;
         kartRepoTrig.enabled = true;

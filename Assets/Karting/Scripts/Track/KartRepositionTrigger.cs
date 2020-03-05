@@ -11,17 +11,22 @@ namespace KartGame.Track
     /// </summary>
     public class KartRepositionTrigger : MonoBehaviour
     {
-        [Tooltip("A reference to the KartMovement script of the kart.")]
-        [RequireInterface (typeof(IMovable))]
-        public Object movable;
+//        [Tooltip("A reference to the KartMovement script of the kart.")]
+//        [RequireInterface (typeof(IMovable))]
+//        public Object movable;
         [Tooltip("A reference to the TrackManager script for this track.")]
         public TrackManager trackManager;
 
         IMovable m_Movable;
 
-        void Awake ()
+        void Awake()
         {
-            m_Movable = (IMovable)movable;
+            
+        }
+
+        public void SetMovable(IMovable moveable)
+        { 
+            m_Movable = moveable;
         }
 
         void Update ()
