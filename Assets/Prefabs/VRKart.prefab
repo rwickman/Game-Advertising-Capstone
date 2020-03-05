@@ -480,7 +480,7 @@ MonoBehaviour:
     hopHeight: 4
     reverseAcceleration: 3
     reverseSpeed: 5
-    topSpeed: 25
+    topSpeed: 10
     turnSpeed: 60
     weight: 3
   groundLayers:

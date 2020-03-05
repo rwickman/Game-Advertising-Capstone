@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.XR;
 
 public class SceneController : MonoBehaviour
 {
     public delegate void LevelLoaded(string sceneName);
-    
-    public LevelLoaded load;
+
+    LevelLoaded load;
 
     void Awake()
     {

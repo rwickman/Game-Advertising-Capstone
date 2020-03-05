@@ -12,6 +12,7 @@ public class KartManager : MonoBehaviour
     public SceneData sceneData;
 
     SceneController sceneController;
+    
 
     bool isVR = false;
     
@@ -46,7 +47,7 @@ public class KartManager : MonoBehaviour
         {
             GameObject kartParent = Instantiate(mobileKart, Vector3.zero, Quaternion.identity);
             // Get the kart gameobject
-            kartGO = kartParent.transform.GetChild(0).gameObject;
+            kartGO = kartParent.transform.GetChild(1).gameObject;
             kartGO.transform.position = kartPos;
         }
         
@@ -54,6 +55,9 @@ public class KartManager : MonoBehaviour
         KartMovement movement = kartGO.GetComponent<KartMovement>();
         KartRepositionTrigger kartRepoTrig = trackManagerGO.GetComponent<KartRepositionTrigger>();
         TimeDisplay display = displayGO.GetComponent<TimeDisplay>();
+        AudioSource audio = GameObject.Find("BackgroundMusic").GetComponent<AudioSource>();
+        audio.enabled = true;
+        audio.Play();
 
         kartRepoTrig.movable = movement;
         display.initialRacer = movement;

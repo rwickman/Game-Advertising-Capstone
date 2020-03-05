@@ -39,14 +39,14 @@ namespace KartGame.KartSystems
         bool m_HopHeld;
         bool m_BoostPressed;
         bool m_FirePressed;
-        float rotationMod = (float)2.3;
+        public float rotationMod = 2.3f;
 
         bool m_FixedUpdateHappened;
 
         void Update()
         {
 
-            m_Steering = -Input.acceleration.x * rotationMod;
+            m_Steering = Input.acceleration.x * rotationMod;
 
             m_HopHeld = Input.GetButton("Hop");
 

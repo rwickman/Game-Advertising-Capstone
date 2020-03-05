@@ -51,7 +51,7 @@ namespace KartGame.KartSystems
         Vector3 camRight;
         void Start()
         {
-            m_Acceleration = 0.1f;
+            m_Acceleration = 1f;
             m_Camera = Camera.main;
             camRight = m_Camera.transform.right;
         }

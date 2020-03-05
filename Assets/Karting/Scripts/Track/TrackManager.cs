@@ -21,6 +21,7 @@ namespace KartGame.Track
         public KartRepositioner kartRepositioner;
 
         bool m_IsRaceRunning;
+        bool m_IsRaceStopped;
         Dictionary<IRacer, Checkpoint> m_RacerNextCheckpoints = new Dictionary<IRacer, Checkpoint> (16);
         TrackRecord m_SessionBestLap = TrackRecord.CreateDefault ();
         TrackRecord m_SessionBestRace = TrackRecord.CreateDefault ();
@@ -28,6 +29,7 @@ namespace KartGame.Track
         TrackRecord m_HistoricalBestRace;
 
         public bool IsRaceRunning => m_IsRaceRunning;
+        public bool IsRaceStopped => m_IsRaceStopped;
 
         /// <summary>
         /// Returns the best lap time recorded this session.  If no record is found, -1 is returned.
@@ -150,6 +152,7 @@ namespace KartGame.Track
 
             TrackRecord.Save (m_HistoricalBestLap);
             TrackRecord.Save (m_HistoricalBestRace);
+            m_IsRaceStopped = true;
         }
 
         void CheckRacerHitCheckpoint (IRacer racer, Checkpoint checkpoint)

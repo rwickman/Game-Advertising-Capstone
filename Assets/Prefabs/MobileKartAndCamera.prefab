@@ -122,7 +122,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1443270160100509020}
-  - {fileID: 2322817470193383079}
+  - {fileID: 1443270158750556802}
   - {fileID: 1443270160448470307}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -153,7 +153,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1443270160100508995}
-  m_LocalRotation: {x: 0.08865354, y: 0.000000040838508, z: -0.00000050659776, w: 0.9960626}
+  m_LocalRotation: {x: 0.08865355, y: -0.0000000042846575, z: 3.8135156e-10, w: 0.9960625}
   m_LocalPosition: {x: 16, y: 2.9100003, z: -5.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -270,7 +270,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1443270160448470305}
-  m_LocalRotation: {x: 0.08865354, y: 0.000000040838508, z: -0.00000050659776, w: 0.9960626}
+  m_LocalRotation: {x: 0.08865355, y: -0.0000000042846575, z: 3.8135156e-10, w: 0.9960625}
   m_LocalPosition: {x: 16, y: 2.9100003, z: -5.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -296,8 +296,8 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 2322817470193383079}
-  m_Follow: {fileID: 2322817470193383079}
+  m_LookAt: {fileID: 1443270158750556802}
+  m_Follow: {fileID: 1443270158750556802}
   m_Lens:
     FieldOfView: 40
     OrthographicSize: 10
@@ -350,6 +350,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1443270159757543678}
     m_Modifications:
+    - target: {fileID: 3763822634849867138, guid: 8a2015a9601d162459389c9b9d1437fc,
+        type: 3}
+      propertyPath: defaultStats.topSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3763822634849867143, guid: 8a2015a9601d162459389c9b9d1437fc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -412,7 +417,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a2015a9601d162459389c9b9d1437fc, type: 3}
---- !u!4 &2322817470193383079 stripped
+--- !u!4 &1443270158750556802 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3763822634849867143, guid: 8a2015a9601d162459389c9b9d1437fc,
     type: 3}
