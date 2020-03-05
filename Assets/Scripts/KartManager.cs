@@ -25,7 +25,7 @@ public class KartManager : MonoBehaviour
 
     public void InitLevel(string sceneName)
     {
-        print("InitLevel");
+        //print("InitLevel");
         GameObject trackManagerGO = GameObject.Find("TrackManager");
         GameObject displayGO = GameObject.Find("TimeDisplayCanvas");
 
@@ -69,8 +69,8 @@ public class KartManager : MonoBehaviour
     }
 
  
-    public void ToggleIsVR()
+    public void SetIsVR(bool value)
     {
-        isVR = !isVR;
+        isVR = value;
     }
 }

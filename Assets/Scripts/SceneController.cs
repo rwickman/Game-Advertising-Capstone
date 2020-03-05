@@ -9,8 +9,18 @@ public class SceneController : MonoBehaviour
 
     LevelLoaded load;
 
+    private static SceneController instance;
+
     void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
         DontDestroyOnLoad(this.gameObject);
         load = null;
         SceneManager.sceneLoaded += OnSceneLoaded;
