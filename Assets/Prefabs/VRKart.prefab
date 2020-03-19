@@ -420,6 +420,7 @@ GameObject:
   - component: {fileID: 8473341978263984491}
   - component: {fileID: 4732319057349020920}
   - component: {fileID: 4732319058197050796}
+  - component: {fileID: 4444772354068232810}
   m_Layer: 0
   m_Name: VRKart
   m_TagString: Untagged
@@ -663,6 +664,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f981a5a0ad2ed844d8049965e5d8df3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4444772354068232810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8473341978263984489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5fa29482c00f13489af2322288525f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8534517398113226447
@@ -1975,12 +1988,6 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 5304db1f3e113764fae919908740f4ba, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3aa50a8114db7a4e95c5cb29a283ac4, type: 3}
---- !u!4 &8038483248657822890 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400020, guid: d3aa50a8114db7a4e95c5cb29a283ac4,
-    type: 3}
-  m_PrefabInstance: {fileID: 8038483248657690174}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8038483248657822908 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: d3aa50a8114db7a4e95c5cb29a283ac4,
@@ -1990,6 +1997,12 @@ Transform:
 --- !u!4 &8038483248657822898 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400012, guid: d3aa50a8114db7a4e95c5cb29a283ac4,
+    type: 3}
+  m_PrefabInstance: {fileID: 8038483248657690174}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8038483248657822890 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400020, guid: d3aa50a8114db7a4e95c5cb29a283ac4,
     type: 3}
   m_PrefabInstance: {fileID: 8038483248657690174}
   m_PrefabAsset: {fileID: 0}
@@ -2074,6 +2087,12 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 5304db1f3e113764fae919908740f4ba, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 305a556307b36464395aa157cffcd3db, type: 3}
+--- !u!4 &9177856442972353411 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400010, guid: 305a556307b36464395aa157cffcd3db,
+    type: 3}
+  m_PrefabInstance: {fileID: 9177856442972219657}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9177856442972353413 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400012, guid: 305a556307b36464395aa157cffcd3db,
@@ -2095,12 +2114,6 @@ Transform:
 --- !u!4 &9177856442972353423 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400006, guid: 305a556307b36464395aa157cffcd3db,
-    type: 3}
-  m_PrefabInstance: {fileID: 9177856442972219657}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &9177856442972353411 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400010, guid: 305a556307b36464395aa157cffcd3db,
     type: 3}
   m_PrefabInstance: {fileID: 9177856442972219657}
   m_PrefabAsset: {fileID: 0}
