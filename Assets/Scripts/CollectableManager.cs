@@ -7,40 +7,72 @@ public class CollectableManager : MonoBehaviour
 
     public GameObject coinPrefab;
 
-    public GameObject cokeBottlePrefab;
-    public GameObject drThunderBottlePrefab;
+    public GameObject cokeCapPrefab;
+    public GameObject drThundeCapPrefab;
 
     // This has all the individual tracks as children
     public Transform trackParent;
 
     public int coinsPerLevel = 25;
-    public int bottlesPerLevel;
+    public int capsPerLevel= 5;
 
     List<Transform> tracks;
     GameObject collectParent;
+
+    public bool useGeneric;
     // Start is called before the first frame update
     void Start()
     {
+        if (trackParent == null)
+        {
+            trackParent = GameObject.Find("ModularTrack").transform;
+
+        }
         // Get all tracks
         tracks = new List<Transform>();
-        foreach (Transform child in trackParent)
-        {
-            if (child.tag == "Track")
-            {
-                tracks.Add(child);
-            }
-        }
+        GetAllTracks(trackParent);
+
         collectParent = new GameObject("Collectables");
         PlaceCoins();
     }
 
     private void PlaceCoins()
     {
-        GameObject coinParent = new GameObject();
         Shuffle(tracks);
-        for (int i = 0; i < Mathf.Min(coinsPerLevel, tracks.Count); i++)
+       
+        for (int i = 0; i < Mathf.Min(capsPerLevel, tracks.Count); i++)
+        {
+            if (useGeneric)
+            {
+                Instantiate(drThundeCapPrefab, tracks[i].position + Vector3.up, coinPrefab.transform.rotation, collectParent.transform);
+            }
+            else
+            {
+                Instantiate(cokeCapPrefab, tracks[i].position + Vector3.up, coinPrefab.transform.rotation, collectParent.transform);
+            }
+            
+        }
+
+        // Place coins up until coinsPerLevel or all the track space has been used up
+        for (int i = capsPerLevel; i < Mathf.Min(capsPerLevel + coinsPerLevel, tracks.Count); i++)
         {
             Instantiate(coinPrefab, tracks[i].position + Vector3.up, coinPrefab.transform.rotation, collectParent.transform);
+        }
+    }
+
+
+    private void GetAllTracks(Transform parent)
+    {
+        foreach (Transform child in parent)
+        {
+            if (child.tag == "Track")
+            {
+                tracks.Add(child);
+            }
+            else
+            {
+                GetAllTracks(child);
+            }
         }
     }
 
