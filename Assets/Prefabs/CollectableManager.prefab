@@ -50,6 +50,8 @@ MonoBehaviour:
   drThundeCapPrefab: {fileID: 1115800460738979826, guid: cb5bfd9c9bda1b04c990974e41b61ad2,
     type: 3}
   trackParent: {fileID: 0}
-  coinsPerLevel: 20
-  capsPerLevel: 5
+  finishLine: {fileID: 0}
+  coinsPerLap: 25
+  capsPerLap: 5
+  minDistanceFromFinishLine: 20
   useGeneric: 0

@@ -13,8 +13,12 @@ public class CollectableManager : MonoBehaviour
     // This has all the individual tracks as children
     public Transform trackParent;
 
-    public int coinsPerLevel = 25;
-    public int capsPerLevel= 5;
+    public Transform finishLine;
+    public int coinsPerLap = 25;
+    public int capsPerLap= 5;
+
+    // Enforce that collectables cannot be placed too close to the finish line
+    public float minDistanceFromFinishLine = 20;
 
     List<Transform> tracks;
     GameObject collectParent;
@@ -23,6 +27,11 @@ public class CollectableManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (finishLine == null)
+        {
+            finishLine = GameObject.Find("StartFinishLine").transform;
+        }
+        
         if (trackParent == null)
         {
             trackParent = GameObject.Find("ModularTrack").transform;
@@ -31,6 +40,7 @@ public class CollectableManager : MonoBehaviour
         // Get all tracks
         tracks = new List<Transform>();
         GetAllTracks(trackParent);
+        FilterTracks();
 
         collectParent = new GameObject("Collectables");
         PlaceCoins();
@@ -40,8 +50,8 @@ public class CollectableManager : MonoBehaviour
     {
         Shuffle(tracks);
        
-        for (int i = 0; i < Mathf.Min(capsPerLevel, tracks.Count); i++)
-        {
+        for (int i = 0; i < Mathf.Min(capsPerLap, tracks.Count); i++)
+        {           
             if (useGeneric)
             {
                 Instantiate(drThundeCapPrefab, tracks[i].position + Vector3.up, coinPrefab.transform.rotation, collectParent.transform);
@@ -51,14 +61,17 @@ public class CollectableManager : MonoBehaviour
                 Instantiate(cokeCapPrefab, tracks[i].position + Vector3.up, coinPrefab.transform.rotation, collectParent.transform);
             }
             
+            
+            
         }
 
-        // Place coins up until coinsPerLevel or all the track space has been used up
-        for (int i = capsPerLevel; i < Mathf.Min(capsPerLevel + coinsPerLevel, tracks.Count); i++)
+        // Place coins up until coinsPerLap or all the track space has been used up
+        for (int i = capsPerLap; i < Mathf.Min(capsPerLap + coinsPerLap, tracks.Count); i++)
         {
             Instantiate(coinPrefab, tracks[i].position + Vector3.up, coinPrefab.transform.rotation, collectParent.transform);
         }
     }
+
 
 
     private void GetAllTracks(Transform parent)
@@ -69,13 +82,26 @@ public class CollectableManager : MonoBehaviour
             {
                 tracks.Add(child);
             }
-            else
+            else if(child.childCount > 0)
             {
                 GetAllTracks(child);
             }
         }
     }
 
+    private void FilterTracks()
+    {
+        List<Transform> tempTracks = new List<Transform>();
+        for (int i = 0; i < tracks.Count; i++)
+        {
+            if (Vector3.Distance(finishLine.position, tracks[i].position) > minDistanceFromFinishLine)
+            {
+                tempTracks.Add(tracks[i]);
+            }
+        }
+        tracks = tempTracks;
+        
+    }
 
     // Fisher-Yates shuffle
     private void Shuffle<T>(List<T> list)
