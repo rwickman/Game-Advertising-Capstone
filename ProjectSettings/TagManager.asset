@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Coin
+  - Track
   layers:
   - Default
   - TransparentFX
