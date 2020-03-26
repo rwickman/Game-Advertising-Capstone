@@ -58,21 +58,16 @@ public class CollectableManager : MonoBehaviour
             }
             else
             {
-                Instantiate(cokeCapPrefab, tracks[i].position + Vector3.up, coinPrefab.transform.rotation, collectParent.transform);
+                Instantiate(cokeCapPrefab, tracks[i].GetComponent<Renderer>().bounds.center + Vector3.up * 0.5f, coinPrefab.transform.rotation, collectParent.transform);
             }
-            
-            
-            
         }
 
         // Place coins up until coinsPerLap or all the track space has been used up
         for (int i = capsPerLap; i < Mathf.Min(capsPerLap + coinsPerLap, tracks.Count); i++)
         {
-            Instantiate(coinPrefab, tracks[i].position + Vector3.up, coinPrefab.transform.rotation, collectParent.transform);
+            Instantiate(coinPrefab, tracks[i].GetComponent<Renderer>().bounds.center + Vector3.up * 0.5f, coinPrefab.transform.rotation, collectParent.transform);
         }
     }
-
-
 
     private void GetAllTracks(Transform parent)
     {
