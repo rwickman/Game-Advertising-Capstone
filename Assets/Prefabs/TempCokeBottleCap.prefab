@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5696631263266492614}
   - component: {fileID: 4204850186910761486}
   m_Layer: 10
-  m_Name: BottleCap
+  m_Name: TempCokeBottleCap
   m_TagString: Coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

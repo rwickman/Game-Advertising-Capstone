@@ -51,10 +51,10 @@ public class CollectableManager : MonoBehaviour
         Shuffle(tracks);
        
         for (int i = 0; i < Mathf.Min(capsPerLap, tracks.Count); i++)
-        {           
+        {
             if (useGeneric)
             {
-                Instantiate(drThundeCapPrefab, tracks[i].position + Vector3.up, coinPrefab.transform.rotation, collectParent.transform);
+                Instantiate(drThundeCapPrefab, tracks[i].GetComponent<Renderer>().bounds.center + Vector3.up * 0.5f, coinPrefab.transform.rotation, collectParent.transform);
             }
             else
             {
