@@ -1,17 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &4559482703295904273
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2322817470193383084}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5fa29482c00f13489af2322288525f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1443270159225937994
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,7 +153,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1443270160100508995}
-  m_LocalRotation: {x: 0.08865355, y: 0.0000000042846575, z: -3.8135178e-10, w: 0.9960625}
+  m_LocalRotation: {x: 0.08865355, y: -0.0000000042846575, z: 3.8135156e-10, w: 0.9960625}
   m_LocalPosition: {x: 16, y: 2.9100003, z: -5.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -282,7 +270,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1443270160448470305}
-  m_LocalRotation: {x: 0.08865355, y: 0.0000000042846575, z: -3.8135178e-10, w: 0.9960625}
+  m_LocalRotation: {x: 0.08865355, y: -0.0000000042846575, z: 3.8135156e-10, w: 0.9960625}
   m_LocalPosition: {x: 16, y: 2.9100003, z: -5.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -355,6 +343,18 @@ MonoBehaviour:
   m_Damping: 2
   m_DampingWhenOccluded: 1
   m_OptimalTargetDistance: 0
+--- !u!114 &4559482703295904273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2322817470193383084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5fa29482c00f13489af2322288525f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1443270158750556960
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -365,7 +365,7 @@ PrefabInstance:
     - target: {fileID: 3763822634849867138, guid: 8a2015a9601d162459389c9b9d1437fc,
         type: 3}
       propertyPath: defaultStats.topSpeed
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3763822634849867143, guid: 8a2015a9601d162459389c9b9d1437fc,
         type: 3}
