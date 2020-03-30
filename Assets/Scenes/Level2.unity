@@ -2954,6 +2954,11 @@ PrefabInstance:
       propertyPath: checkpoints.Array.data[3]
       value: 
       objectReference: {fileID: 1326394531}
+    - target: {fileID: 9084884021648134801, guid: 1a27545505a30d6479abf78847244a72,
+        type: 3}
+      propertyPath: collectableManager
+      value: 
+      objectReference: {fileID: 2092514887}
     - target: {fileID: 9084884021648134802, guid: 1a27545505a30d6479abf78847244a72,
         type: 3}
       propertyPath: m_Name
@@ -5539,6 +5544,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c085e17d0c62774f9da7f8cf8381eb0, type: 3}
+--- !u!114 &2092514887 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 317008931932736960, guid: 1c085e17d0c62774f9da7f8cf8381eb0,
+    type: 3}
+  m_PrefabInstance: {fileID: 2092514886}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a03a785927c1a4e895b00bc084cd8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2093240584
 GameObject:
   m_ObjectHideFlags: 0

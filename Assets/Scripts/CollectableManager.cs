@@ -19,14 +19,16 @@ public class CollectableManager : MonoBehaviour
 
     // Enforce that collectables cannot be placed too close to the finish line
     public float minDistanceFromFinishLine = 20;
-
-    List<Transform> tracks;
-    GameObject collectParent;
-
     public bool useGeneric;
+
+    private List<Transform> tracks;
+    private GameObject collectParent;
+    private List<GameObject> collectables;
+    
     // Start is called before the first frame update
     void Start()
     {
+        collectables = new List<GameObject>();
         if (finishLine == null)
         {
             finishLine = GameObject.Find("StartFinishLine").transform;
@@ -43,30 +45,58 @@ public class CollectableManager : MonoBehaviour
         FilterTracks();
 
         collectParent = new GameObject("Collectables");
-        PlaceCoins();
+        PlaceCollectables();
     }
 
-    private void PlaceCoins()
+
+
+    public void PlaceCollectables()
     {
+        print("PLACING COLLECTABLE");
         Shuffle(tracks);
        
         for (int i = 0; i < Mathf.Min(capsPerLap, tracks.Count); i++)
         {
             if (useGeneric)
             {
-                Instantiate(drThundeCapPrefab, tracks[i].GetComponent<Renderer>().bounds.center + Vector3.up * 0.5f, coinPrefab.transform.rotation, collectParent.transform);
+                collectables.Add(
+                    Instantiate(drThundeCapPrefab,
+                        tracks[i].GetComponent<Renderer>().bounds.center + Vector3.up * 0.5f,
+                        coinPrefab.transform.rotation,
+                        collectParent.transform));
             }
             else
             {
-                Instantiate(cokeCapPrefab, tracks[i].GetComponent<Renderer>().bounds.center + Vector3.up * 0.5f, coinPrefab.transform.rotation, collectParent.transform);
+                collectables.Add(
+                    Instantiate(cokeCapPrefab,
+                        tracks[i].GetComponent<Renderer>().bounds.center + Vector3.up * 0.5f,
+                        coinPrefab.transform.rotation,
+                        collectParent.transform));
             }
         }
 
         // Place coins up until coinsPerLap or all the track space has been used up
         for (int i = capsPerLap; i < Mathf.Min(capsPerLap + coinsPerLap, tracks.Count); i++)
         {
-            Instantiate(coinPrefab, tracks[i].GetComponent<Renderer>().bounds.center + Vector3.up * 0.5f, coinPrefab.transform.rotation, collectParent.transform);
+            collectables.Add(
+                Instantiate(coinPrefab, 
+                    tracks[i].GetComponent<Renderer>().bounds.center + Vector3.up * 0.5f,
+                    coinPrefab.transform.rotation,
+                    collectParent.transform));
         }
+    }
+
+    public void RemoveCollectables()
+    {
+        print("REMOVING COLLECTABLE");
+        foreach (GameObject collectable in collectables)
+        { 
+            if (collectable != null)
+            {
+                Destroy(collectable);
+            }
+        }
+        collectables.Clear();
     }
 
     private void GetAllTracks(Transform parent)
