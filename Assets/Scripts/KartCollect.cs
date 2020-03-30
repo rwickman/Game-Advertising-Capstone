@@ -6,7 +6,7 @@ using UnityEngine;
 public class KartCollect : MonoBehaviour
 {
     public int score;
-
+   
     private int coinPoints = 5;
     private int bottleCapPoints = 10;
 
@@ -30,17 +30,26 @@ public class KartCollect : MonoBehaviour
     {
         if (other.tag == "Coin")
         {
-            
             score += coinPoints;
-            Destroy(other.gameObject);
+            StartCoroutine(CollectAndDestory(other.gameObject));
             scoreUpdated = true;
         }
         if (other.tag == "Cap")
         {
-
             score += bottleCapPoints;
-            Destroy(other.gameObject);
+            StartCoroutine(CollectAndDestory(other.gameObject));
             scoreUpdated = true;
         }
+    }
+
+    IEnumerator CollectAndDestory(GameObject collectable)
+    {
+        print("Playing coin sound!");
+        collectable.GetComponent<MeshRenderer>().enabled = false;
+        collectable.GetComponent<CapsuleCollider>().enabled = false;
+        AudioSource audio = collectable.GetComponent<AudioSource>();
+        audio.Play();
+        yield return new WaitForSeconds(audio.clip.length);
+        Destroy(collectable);
     }
 }

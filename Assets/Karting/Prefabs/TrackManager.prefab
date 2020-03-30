@@ -53,6 +53,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   kartRepositioner: {fileID: 9084884021648134807}
+  collectableManager: {fileID: 0}
 --- !u!114 &9084884021648134807
 MonoBehaviour:
   m_ObjectHideFlags: 0
