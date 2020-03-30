@@ -14,12 +14,14 @@ public class CollectableManager : MonoBehaviour
     public Transform trackParent;
 
     public Transform finishLine;
-    public int coinsPerLap = 25;
-    public int capsPerLap= 5;
+    public int coinClusterPerLap = 25;
+    public int capClustersPerLap = 5;
 
     // Enforce that collectables cannot be placed too close to the finish line
     public float minDistanceFromFinishLine = 20;
     public bool useGeneric;
+    public int numCoinClusterSize = 5;
+    public float coinOffset = 1f;
 
     private List<Transform> tracks;
     private GameObject collectParent;
@@ -52,43 +54,151 @@ public class CollectableManager : MonoBehaviour
 
     public void PlaceCollectables()
     {
-        print("PLACING COLLECTABLE");
         Shuffle(tracks);
-       
-        for (int i = 0; i < Mathf.Min(capsPerLap, tracks.Count); i++)
+
+        Vector3 capPos;
+        for (int i = 0; i < Mathf.Min(capClustersPerLap, tracks.Count); i++)
         {
-            if (useGeneric)
+            capPos = tracks[i].GetComponent<Renderer>().bounds.center + Vector3.up * 0.5f;
+            if (tracks[i].name.Contains("Curve"))
             {
-                collectables.Add(
-                    Instantiate(drThundeCapPrefab,
-                        tracks[i].GetComponent<Renderer>().bounds.center + Vector3.up * 0.5f,
-                        coinPrefab.transform.rotation,
-                        collectParent.transform));
+                for (int j = 0; j < numCoinClusterSize; j++)
+                {
+                    if (useGeneric)
+                    {
+                        collectables.Add(
+                            Instantiate(drThundeCapPrefab,
+                                capPos,
+                                coinPrefab.transform.rotation,
+                                collectParent.transform));
+                    }
+                    else
+                    {
+                        collectables.Add(
+                            Instantiate(cokeCapPrefab,
+                                capPos,
+                                coinPrefab.transform.rotation,
+                                collectParent.transform));
+                    }
+                    if (tracks[i].eulerAngles.y == 180 || tracks[i].eulerAngles.y == 0)
+                    {
+                        capPos.x += coinOffset;
+                        capPos.z -= coinOffset;
+                    }
+                    else
+                    {
+                        capPos.x += coinOffset;
+                        capPos.z += coinOffset;
+                    }
+                    
+                }
+            }
+            else if (tracks[i].rotation.eulerAngles.y == 0 || Mathf.Abs(tracks[i].rotation.eulerAngles.y) == 180)
+            {
+                for (int j = 0; j < numCoinClusterSize; j++)
+                {
+                    if (useGeneric)
+                    {
+                        collectables.Add(
+                            Instantiate(drThundeCapPrefab,
+                                capPos,
+                                coinPrefab.transform.rotation,
+                                collectParent.transform));
+                    }
+                    else
+                    {
+                        collectables.Add(
+                            Instantiate(cokeCapPrefab,
+                                capPos,
+                                coinPrefab.transform.rotation,
+                                collectParent.transform));
+                    }
+                    capPos.z += coinOffset;
+                }
             }
             else
             {
-                collectables.Add(
-                    Instantiate(cokeCapPrefab,
-                        tracks[i].GetComponent<Renderer>().bounds.center + Vector3.up * 0.5f,
-                        coinPrefab.transform.rotation,
-                        collectParent.transform));
-            }
+                for (int j = 0; j < numCoinClusterSize; j++)
+                {
+                    if (useGeneric)
+                    {
+                        collectables.Add(
+                            Instantiate(drThundeCapPrefab,
+                                capPos,
+                                coinPrefab.transform.rotation,
+                                collectParent.transform));
+                    }
+                    else
+                    {
+                        collectables.Add(
+                            Instantiate(cokeCapPrefab,
+                                capPos,
+                                coinPrefab.transform.rotation,
+                                collectParent.transform));
+                    }
+                    capPos.x += coinOffset;
+                }
+            }          
+
         }
 
-        // Place coins up until coinsPerLap or all the track space has been used up
-        for (int i = capsPerLap; i < Mathf.Min(capsPerLap + coinsPerLap, tracks.Count); i++)
+        Vector3 coinPos;
+        // Place coins up until coinClusterPerLap or all the track space has been used up
+        for (int i = capClustersPerLap; i < Mathf.Min(capClustersPerLap + coinClusterPerLap, tracks.Count); i++)
         {
-            collectables.Add(
-                Instantiate(coinPrefab, 
-                    tracks[i].GetComponent<Renderer>().bounds.center + Vector3.up * 0.5f,
-                    coinPrefab.transform.rotation,
-                    collectParent.transform));
+            coinPos = tracks[i].GetComponent<Renderer>().bounds.center + Vector3.up * 0.5f;
+            if (tracks[i].name.Contains("Curve"))
+            {
+                for (int j = 0; j < numCoinClusterSize; j++)
+                {
+                    collectables.Add(
+                        Instantiate(coinPrefab,
+                            coinPos,
+                            coinPrefab.transform.rotation,
+                            collectParent.transform));
+                    if (tracks[i].eulerAngles.y == 180 || tracks[i].eulerAngles.y == 0)
+                    {
+                        coinPos.x += coinOffset;
+                        coinPos.z -= coinOffset;
+                    }
+                    else
+                    {
+                        coinPos.x += coinOffset;
+                        coinPos.z += coinOffset;
+                    }
+                }
+            }
+            else if (tracks[i].rotation.eulerAngles.y == 0 || Mathf.Abs(tracks[i].rotation.eulerAngles.y) == 180)
+            {
+                for (int j = 0; j < numCoinClusterSize; j++)
+                {
+                    collectables.Add(
+                        Instantiate(coinPrefab,
+                            coinPos,
+                            coinPrefab.transform.rotation,
+                            collectParent.transform));
+                    coinPos.z += coinOffset;
+                }
+                    
+            }
+            else
+            {
+                for (int j = 0; j < numCoinClusterSize; j++)
+                {
+                    collectables.Add(
+                        Instantiate(coinPrefab,
+                            coinPos,
+                            coinPrefab.transform.rotation,
+                            collectParent.transform));
+                    coinPos.x += coinOffset;
+                }
+            }
         }
     }
 
+
     public void RemoveCollectables()
     {
-        print("REMOVING COLLECTABLE");
         foreach (GameObject collectable in collectables)
         { 
             if (collectable != null)
