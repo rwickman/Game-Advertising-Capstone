@@ -20,13 +20,15 @@ public class CollectableManager : MonoBehaviour
     // Enforce that collectables cannot be placed too close to the finish line
     public float minDistanceFromFinishLine = 20;
     public bool useGeneric;
-    public int numCoinClusterSize = 5;
-    public float coinOffset = 1f;
+    public int clusterSize = 5;
+    public float clusterOffset = 1f;
+    public float curveOffset = 2.5f;
+    public LayerMask coinLayer;
 
     private List<Transform> tracks;
     private GameObject collectParent;
     private List<GameObject> collectables;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +37,7 @@ public class CollectableManager : MonoBehaviour
         {
             finishLine = GameObject.Find("StartFinishLine").transform;
         }
-        
+
         if (trackParent == null)
         {
             trackParent = GameObject.Find("ModularTrack").transform;
@@ -44,6 +46,7 @@ public class CollectableManager : MonoBehaviour
         // Get all tracks
         tracks = new List<Transform>();
         GetAllTracks(trackParent);
+        print(tracks.Count);
         FilterTracks();
 
         collectParent = new GameObject("Collectables");
@@ -57,13 +60,30 @@ public class CollectableManager : MonoBehaviour
         Shuffle(tracks);
 
         Vector3 capPos;
+        print(tracks.Count);
         for (int i = 0; i < Mathf.Min(capClustersPerLap, tracks.Count); i++)
         {
             capPos = tracks[i].GetComponent<Renderer>().bounds.center + Vector3.up * 0.5f;
+            bool isRamp = tracks[i].name.Contains("Ramp");
+            
             if (tracks[i].name.Contains("Curve"))
             {
-                for (int j = 0; j < numCoinClusterSize; j++)
+                capPos = tracks[i].position  + Vector3.up * 0.5f; ;
+                //print(tracks[i].GetComponent<Renderer>().bounds.max);
+                /*
+
+                for (int j = 0; j < clusterSize; j++)
                 {
+                    if (j == 0 && (tracks[i].eulerAngles.y == 180 || tracks[i].eulerAngles.y == 90))
+                    {
+                        capPos.z -= curveOffset;
+                    }
+                    else if (j == 0 && (tracks[i].eulerAngles.y == 0 || tracks[i].eulerAngles.y == -90))
+                    {
+                        capPos.x += curveOffset;
+                    }
+
+
                     if (useGeneric)
                     {
                         collectables.Add(
@@ -79,23 +99,26 @@ public class CollectableManager : MonoBehaviour
                                 capPos,
                                 coinPrefab.transform.rotation,
                                 collectParent.transform));
-                    }
-                    if (tracks[i].eulerAngles.y == 180 || tracks[i].eulerAngles.y == 0)
-                    {
-                        capPos.x += coinOffset;
-                        capPos.z -= coinOffset;
-                    }
-                    else
-                    {
-                        capPos.x += coinOffset;
-                        capPos.z += coinOffset;
                     }
                     
-                }
+                    if (tracks[i].eulerAngles.y == 180 || tracks[i].eulerAngles.y == 0)
+                    {
+                        capPos.x += clusterOffset;
+                        capPos.z -= clusterOffset;
+                    }
+                    else
+                    {
+                        capPos.x += clusterOffset;
+                        capPos.z += clusterOffset;
+                    }
+               
+
+                }*/
             }
-            else if (tracks[i].rotation.eulerAngles.y == 0 || Mathf.Abs(tracks[i].rotation.eulerAngles.y) == 180)
+
+            if (tracks[i].rotation.eulerAngles.y == 0 || Mathf.Abs(tracks[i].rotation.eulerAngles.y) == 180)
             {
-                for (int j = 0; j < numCoinClusterSize; j++)
+                for (int j = 0; j < clusterSize; j++)
                 {
                     if (useGeneric)
                     {
@@ -113,12 +136,12 @@ public class CollectableManager : MonoBehaviour
                                 coinPrefab.transform.rotation,
                                 collectParent.transform));
                     }
-                    capPos.z += coinOffset;
+                    capPos.z += clusterOffset;
                 }
             }
             else
             {
-                for (int j = 0; j < numCoinClusterSize; j++)
+                for (int j = 0; j < clusterSize; j++)
                 {
                     if (useGeneric)
                     {
@@ -136,9 +159,9 @@ public class CollectableManager : MonoBehaviour
                                 coinPrefab.transform.rotation,
                                 collectParent.transform));
                     }
-                    capPos.x += coinOffset;
+                    capPos.x += clusterOffset;
                 }
-            }          
+            }
 
         }
 
@@ -147,10 +170,19 @@ public class CollectableManager : MonoBehaviour
         for (int i = capClustersPerLap; i < Mathf.Min(capClustersPerLap + coinClusterPerLap, tracks.Count); i++)
         {
             coinPos = tracks[i].GetComponent<Renderer>().bounds.center + Vector3.up * 0.5f;
+            bool isRamp = tracks[i].name.Contains("Ramp");
             if (tracks[i].name.Contains("Curve"))
             {
-                for (int j = 0; j < numCoinClusterSize; j++)
+                for (int j = 0; j < clusterSize; j++)
                 {
+                    if (j == 0 && (tracks[i].eulerAngles.y == 180 || tracks[i].eulerAngles.y == 90))
+                    {
+                        coinPos.z -= curveOffset;
+                    }
+                    else if (j == 0 && (tracks[i].eulerAngles.y == 0 || tracks[i].eulerAngles.y == -90))
+                    {
+                        coinPos.x += curveOffset;
+                    }
                     collectables.Add(
                         Instantiate(coinPrefab,
                             coinPos,
@@ -158,49 +190,51 @@ public class CollectableManager : MonoBehaviour
                             collectParent.transform));
                     if (tracks[i].eulerAngles.y == 180 || tracks[i].eulerAngles.y == 0)
                     {
-                        coinPos.x += coinOffset;
-                        coinPos.z -= coinOffset;
+                        coinPos.x += clusterOffset;
+                        coinPos.z -= clusterOffset;
                     }
                     else
                     {
-                        coinPos.x += coinOffset;
-                        coinPos.z += coinOffset;
+                        coinPos.x += clusterOffset;
+                        coinPos.z += clusterOffset;
                     }
+
                 }
             }
             else if (tracks[i].rotation.eulerAngles.y == 0 || Mathf.Abs(tracks[i].rotation.eulerAngles.y) == 180)
             {
-                for (int j = 0; j < numCoinClusterSize; j++)
+                for (int j = 0; j < clusterSize; j++)
                 {
                     collectables.Add(
                         Instantiate(coinPrefab,
                             coinPos,
                             coinPrefab.transform.rotation,
                             collectParent.transform));
-                    coinPos.z += coinOffset;
+                    coinPos.z += clusterOffset;
                 }
-                    
+
             }
             else
             {
-                for (int j = 0; j < numCoinClusterSize; j++)
+                for (int j = 0; j < clusterSize; j++)
                 {
                     collectables.Add(
                         Instantiate(coinPrefab,
                             coinPos,
                             coinPrefab.transform.rotation,
                             collectParent.transform));
-                    coinPos.x += coinOffset;
+                    coinPos.x += clusterOffset;
                 }
             }
         }
+        AdjustCollectabls();
     }
 
 
     public void RemoveCollectables()
     {
         foreach (GameObject collectable in collectables)
-        { 
+        {
             if (collectable != null)
             {
                 Destroy(collectable);
@@ -213,11 +247,11 @@ public class CollectableManager : MonoBehaviour
     {
         foreach (Transform child in parent)
         {
-            if (child.tag == "Track")
+            if (child.tag == "Track" || child.name.Contains("Track"))
             {
                 tracks.Add(child);
             }
-            else if(child.childCount > 0)
+            else if (child.childCount > 0)
             {
                 GetAllTracks(child);
             }
@@ -235,7 +269,22 @@ public class CollectableManager : MonoBehaviour
             }
         }
         tracks = tempTracks;
-        
+
+    }
+
+    private void AdjustCollectabls()
+    {
+        RaycastHit hit;
+        for (int i = 0; i < collectables.Count; i++)
+        {
+
+            if (Physics.Raycast(collectables[i].transform.position, -Vector3.up, out hit, coinLayer))
+            {
+                collectables[i].transform.position = new Vector3(collectables[i].transform.position.x, hit.point.y  + 1, collectables[i].transform.position.z);
+                print("HIT: " + hit.transform.name);
+                print(hit.transform.position.y);
+            }
+        }
     }
 
     // Fisher-Yates shuffle

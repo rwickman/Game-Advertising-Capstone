@@ -5482,6 +5482,11 @@ PrefabInstance:
       propertyPath: coinsPerLap
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 317008931932736960, guid: 1c085e17d0c62774f9da7f8cf8381eb0,
+        type: 3}
+      propertyPath: coinClusterPerLap
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 4405869118381039309, guid: 1c085e17d0c62774f9da7f8cf8381eb0,
         type: 3}
       propertyPath: m_LocalPosition.x
