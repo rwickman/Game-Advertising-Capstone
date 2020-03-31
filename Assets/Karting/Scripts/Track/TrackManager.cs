@@ -19,6 +19,7 @@ namespace KartGame.Track
         public List<Checkpoint> checkpoints = new List<Checkpoint> ();
         [Tooltip("Reference to an object responsible for repositioning karts.")]
         public KartRepositioner kartRepositioner;
+        public CollectableManager collectableManager;
 
         bool m_IsRaceRunning;
         bool m_IsRaceStopped;
@@ -30,6 +31,7 @@ namespace KartGame.Track
 
         public bool IsRaceRunning => m_IsRaceRunning;
         public bool IsRaceStopped => m_IsRaceStopped;
+
 
         /// <summary>
         /// Returns the best lap time recorded this session.  If no record is found, -1 is returned.
@@ -121,6 +123,10 @@ namespace KartGame.Track
                 m_RacerNextCheckpoints.Add (racer, checkpoints[0]);
                 racer.DisableControl ();
             }
+            if (collectableManager == null)
+            {
+                collectableManager = GameObject.Find("CollectableManager").GetComponent<CollectableManager>();
+            }
         }
 
         /// <summary>
@@ -201,16 +207,22 @@ namespace KartGame.Track
 
                     if (racerCurrentLap == raceLapTotal)
                     {
-                        float raceTime = racer.GetRaceTime ();
+                        float raceTime = racer.GetRaceTime();
 
                         if (m_SessionBestRace.time > raceTime)
-                            m_SessionBestRace.SetRecord (trackName, raceLapTotal, racer, raceTime);
+                            m_SessionBestRace.SetRecord(trackName, raceLapTotal, racer, raceTime);
 
                         if (m_HistoricalBestRace.time > raceTime)
-                            m_HistoricalBestLap.SetRecord (trackName, raceLapTotal, racer, raceTime);
+                            m_HistoricalBestLap.SetRecord(trackName, raceLapTotal, racer, raceTime);
 
-                        racer.DisableControl ();
-                        racer.PauseTimer ();
+                        racer.DisableControl();
+                        racer.PauseTimer();
+                    }
+                    else
+                    {
+                        collectableManager.RemoveCollectables();
+                        collectableManager.PlaceCollectables();
+
                     }
                 }
 
