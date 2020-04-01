@@ -63,57 +63,13 @@ public class CollectableManager : MonoBehaviour
         print(tracks.Count);
         for (int i = 0; i < Mathf.Min(capClustersPerLap, tracks.Count); i++)
         {
-            capPos = tracks[i].GetComponent<Renderer>().bounds.center + Vector3.up * 0.5f;
-            bool isRamp = tracks[i].name.Contains("Ramp");
-            
             if (tracks[i].name.Contains("Curve"))
             {
-                capPos = tracks[i].position  + Vector3.up * 0.5f; ;
-                //print(tracks[i].GetComponent<Renderer>().bounds.max);
-                /*
-
-                for (int j = 0; j < clusterSize; j++)
-                {
-                    if (j == 0 && (tracks[i].eulerAngles.y == 180 || tracks[i].eulerAngles.y == 90))
-                    {
-                        capPos.z -= curveOffset;
-                    }
-                    else if (j == 0 && (tracks[i].eulerAngles.y == 0 || tracks[i].eulerAngles.y == -90))
-                    {
-                        capPos.x += curveOffset;
-                    }
-
-
-                    if (useGeneric)
-                    {
-                        collectables.Add(
-                            Instantiate(drThundeCapPrefab,
-                                capPos,
-                                coinPrefab.transform.rotation,
-                                collectParent.transform));
-                    }
-                    else
-                    {
-                        collectables.Add(
-                            Instantiate(cokeCapPrefab,
-                                capPos,
-                                coinPrefab.transform.rotation,
-                                collectParent.transform));
-                    }
-                    
-                    if (tracks[i].eulerAngles.y == 180 || tracks[i].eulerAngles.y == 0)
-                    {
-                        capPos.x += clusterOffset;
-                        capPos.z -= clusterOffset;
-                    }
-                    else
-                    {
-                        capPos.x += clusterOffset;
-                        capPos.z += clusterOffset;
-                    }
-               
-
-                }*/
+                capPos = tracks[i].position + Vector3.up * 0.5f;
+            }
+            else
+            {
+                capPos = tracks[i].GetComponent<Renderer>().bounds.center + Vector3.up * 0.5f;
             }
 
             if (tracks[i].rotation.eulerAngles.y == 0 || Mathf.Abs(tracks[i].rotation.eulerAngles.y) == 180)
@@ -169,39 +125,16 @@ public class CollectableManager : MonoBehaviour
         // Place coins up until coinClusterPerLap or all the track space has been used up
         for (int i = capClustersPerLap; i < Mathf.Min(capClustersPerLap + coinClusterPerLap, tracks.Count); i++)
         {
-            coinPos = tracks[i].GetComponent<Renderer>().bounds.center + Vector3.up * 0.5f;
-            bool isRamp = tracks[i].name.Contains("Ramp");
             if (tracks[i].name.Contains("Curve"))
             {
-                for (int j = 0; j < clusterSize; j++)
-                {
-                    if (j == 0 && (tracks[i].eulerAngles.y == 180 || tracks[i].eulerAngles.y == 90))
-                    {
-                        coinPos.z -= curveOffset;
-                    }
-                    else if (j == 0 && (tracks[i].eulerAngles.y == 0 || tracks[i].eulerAngles.y == -90))
-                    {
-                        coinPos.x += curveOffset;
-                    }
-                    collectables.Add(
-                        Instantiate(coinPrefab,
-                            coinPos,
-                            coinPrefab.transform.rotation,
-                            collectParent.transform));
-                    if (tracks[i].eulerAngles.y == 180 || tracks[i].eulerAngles.y == 0)
-                    {
-                        coinPos.x += clusterOffset;
-                        coinPos.z -= clusterOffset;
-                    }
-                    else
-                    {
-                        coinPos.x += clusterOffset;
-                        coinPos.z += clusterOffset;
-                    }
-
-                }
+                coinPos = tracks[i].position + Vector3.up * 0.5f;
             }
-            else if (tracks[i].rotation.eulerAngles.y == 0 || Mathf.Abs(tracks[i].rotation.eulerAngles.y) == 180)
+            else 
+            {
+                coinPos = tracks[i].GetComponent<Renderer>().bounds.center + Vector3.up * 0.5f;
+            }
+
+            if (tracks[i].rotation.eulerAngles.y == 0 || Mathf.Abs(tracks[i].rotation.eulerAngles.y) == 180)
             {
                 for (int j = 0; j < clusterSize; j++)
                 {
