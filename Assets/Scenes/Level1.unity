@@ -4006,6 +4006,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 192343476}
     m_Modifications:
+    - target: {fileID: 7841096914572286500, guid: 1c994073ac1d5445695ce53ec5195532,
+        type: 3}
+      propertyPath: m_TagString
+      value: Track
+      objectReference: {fileID: 0}
     - target: {fileID: 126530, guid: d8c4bc004abb4fb428be3467211cea9c, type: 3}
       propertyPath: m_Name
       value: building_2 (4)
@@ -4065,11 +4070,6 @@ PrefabInstance:
     - target: {fileID: 407188, guid: d8c4bc004abb4fb428be3467211cea9c, type: 3}
       propertyPath: m_LocalScale.z
       value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7841096914572286500, guid: 1c994073ac1d5445695ce53ec5195532,
-        type: 3}
-      propertyPath: m_TagString
-      value: Track
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8c4bc004abb4fb428be3467211cea9c, type: 3}
@@ -19759,6 +19759,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 822690626}
     m_Modifications:
+    - target: {fileID: 7841096914572286500, guid: 1c994073ac1d5445695ce53ec5195532,
+        type: 3}
+      propertyPath: m_TagString
+      value: Track
+      objectReference: {fileID: 0}
     - target: {fileID: 4126308969757231546, guid: 877fc6ef080ba4ecd8a8651303bb0d66,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -19825,11 +19830,6 @@ PrefabInstance:
       value: ModularTrackCantMediumRight (1)
       objectReference: {fileID: 0}
     - target: {fileID: 4126308969757332890, guid: 877fc6ef080ba4ecd8a8651303bb0d66,
-        type: 3}
-      propertyPath: m_TagString
-      value: Track
-      objectReference: {fileID: 0}
-    - target: {fileID: 7841096914572286500, guid: 1c994073ac1d5445695ce53ec5195532,
         type: 3}
       propertyPath: m_TagString
       value: Track
@@ -21355,6 +21355,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2071440473}
     m_Modifications:
+    - target: {fileID: 4126308969757332890, guid: 877fc6ef080ba4ecd8a8651303bb0d66,
+        type: 3}
+      propertyPath: m_TagString
+      value: Track
+      objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: decf25da566de433cb1a874aa0e6dd00, type: 3}
       propertyPath: m_Name
       value: FlowerBush
@@ -21414,11 +21419,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: decf25da566de433cb1a874aa0e6dd00, type: 3}
       propertyPath: m_LocalScale.z
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4126308969757332890, guid: 877fc6ef080ba4ecd8a8651303bb0d66,
-        type: 3}
-      propertyPath: m_TagString
-      value: Track
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: decf25da566de433cb1a874aa0e6dd00, type: 3}
@@ -21676,6 +21676,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 192343476}
     m_Modifications:
+    - target: {fileID: 7841096914572286500, guid: 1c994073ac1d5445695ce53ec5195532,
+        type: 3}
+      propertyPath: m_TagString
+      value: Track
+      objectReference: {fileID: 0}
     - target: {fileID: 129934, guid: e8bf8a360364d0948a2f6427cf3cc569, type: 3}
       propertyPath: m_Name
       value: building_8
@@ -21735,11 +21740,6 @@ PrefabInstance:
     - target: {fileID: 449174, guid: e8bf8a360364d0948a2f6427cf3cc569, type: 3}
       propertyPath: m_LocalScale.z
       value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 7841096914572286500, guid: 1c994073ac1d5445695ce53ec5195532,
-        type: 3}
-      propertyPath: m_TagString
-      value: Track
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8bf8a360364d0948a2f6427cf3cc569, type: 3}
@@ -25306,6 +25306,18 @@ PrefabInstance:
       propertyPath: coinLayer.m_Bits
       value: 512
       objectReference: {fileID: 0}
+    - target: {fileID: 317008931932736960, guid: 1c085e17d0c62774f9da7f8cf8381eb0,
+        type: 3}
+      propertyPath: cokeCapPrefab
+      value: 
+      objectReference: {fileID: 818714150075706489, guid: 2310c64f5c953f744a3893a31f9cb5cf,
+        type: 3}
+    - target: {fileID: 317008931932736960, guid: 1c085e17d0c62774f9da7f8cf8381eb0,
+        type: 3}
+      propertyPath: drThundeCapPrefab
+      value: 
+      objectReference: {fileID: 7962339936613843713, guid: 2aa40eeee9852674f8d9dbe85784d707,
+        type: 3}
     - target: {fileID: 4405869118381039309, guid: 1c085e17d0c62774f9da7f8cf8381eb0,
         type: 3}
       propertyPath: m_LocalPosition.x

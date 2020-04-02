@@ -9615,6 +9615,18 @@ PrefabInstance:
       propertyPath: coinLayer.m_Bits
       value: 512
       objectReference: {fileID: 0}
+    - target: {fileID: 317008931932736960, guid: 1c085e17d0c62774f9da7f8cf8381eb0,
+        type: 3}
+      propertyPath: cokeCapPrefab
+      value: 
+      objectReference: {fileID: 818714150075706489, guid: 2310c64f5c953f744a3893a31f9cb5cf,
+        type: 3}
+    - target: {fileID: 317008931932736960, guid: 1c085e17d0c62774f9da7f8cf8381eb0,
+        type: 3}
+      propertyPath: drThundeCapPrefab
+      value: 
+      objectReference: {fileID: 7962339936613843713, guid: 2aa40eeee9852674f8d9dbe85784d707,
+        type: 3}
     - target: {fileID: 4405869118381039309, guid: 1c085e17d0c62774f9da7f8cf8381eb0,
         type: 3}
       propertyPath: m_LocalPosition.x

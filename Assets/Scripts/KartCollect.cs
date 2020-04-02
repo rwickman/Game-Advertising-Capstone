@@ -44,9 +44,14 @@ public class KartCollect : MonoBehaviour
 
     IEnumerator CollectAndDestory(GameObject collectable)
     {
-        print("Playing coin sound!");
         collectable.GetComponent<MeshRenderer>().enabled = false;
+
         collectable.GetComponent<CapsuleCollider>().enabled = false;
+        if (collectable.tag == "Cap")
+        {
+            // Disable the text of the cap as well
+            collectable.transform.parent.GetChild(1).GetComponent<MeshRenderer>().enabled = false;
+        }
         AudioSource audio = collectable.GetComponent<AudioSource>();
         audio.Play();
         yield return new WaitForSeconds(audio.clip.length);
