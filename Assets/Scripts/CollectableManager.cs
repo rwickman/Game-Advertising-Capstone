@@ -81,7 +81,7 @@ public class CollectableManager : MonoBehaviour
                         collectables.Add(
                             Instantiate(drThundeCapPrefab,
                                 capPos,
-                                coinPrefab.transform.rotation,
+                                drThundeCapPrefab.transform.rotation,
                                 collectParent.transform));
                     }
                     else
@@ -89,7 +89,7 @@ public class CollectableManager : MonoBehaviour
                         collectables.Add(
                             Instantiate(cokeCapPrefab,
                                 capPos,
-                                coinPrefab.transform.rotation,
+                                cokeCapPrefab.transform.rotation,
                                 collectParent.transform));
                     }
                     capPos.z += clusterOffset;
@@ -104,7 +104,7 @@ public class CollectableManager : MonoBehaviour
                         collectables.Add(
                             Instantiate(drThundeCapPrefab,
                                 capPos,
-                                coinPrefab.transform.rotation,
+                                drThundeCapPrefab.transform.rotation,
                                 collectParent.transform));
                     }
                     else
@@ -112,7 +112,7 @@ public class CollectableManager : MonoBehaviour
                         collectables.Add(
                             Instantiate(cokeCapPrefab,
                                 capPos,
-                                coinPrefab.transform.rotation,
+                                cokeCapPrefab.transform.rotation,
                                 collectParent.transform));
                     }
                     capPos.x += clusterOffset;
