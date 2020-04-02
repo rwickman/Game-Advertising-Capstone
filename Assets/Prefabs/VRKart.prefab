@@ -481,7 +481,7 @@ MonoBehaviour:
     hopHeight: 4
     reverseAcceleration: 3
     reverseSpeed: 5
-    topSpeed: 10
+    topSpeed: 20
     turnSpeed: 60
     weight: 3
   groundLayers:
@@ -678,6 +678,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5fa29482c00f13489af2322288525f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: 0
 --- !u!1 &8534517398113226447
 GameObject:
   m_ObjectHideFlags: 0
