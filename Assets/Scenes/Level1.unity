@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1905,7 +1905,7 @@ PrefabInstance:
     - target: {fileID: 1194238345521648637, guid: e36939eae1abf8340a65a74fc4da5734,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1194238345521648637, guid: e36939eae1abf8340a65a74fc4da5734,
         type: 3}
@@ -1972,30 +1972,75 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1194238345521648637, guid: e36939eae1abf8340a65a74fc4da5734,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1194238345521648637, guid: e36939eae1abf8340a65a74fc4da5734,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1194238345521648637, guid: e36939eae1abf8340a65a74fc4da5734,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1194238346033176544, guid: e36939eae1abf8340a65a74fc4da5734,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1194238346033176544, guid: e36939eae1abf8340a65a74fc4da5734,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1194238346033176544, guid: e36939eae1abf8340a65a74fc4da5734,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 198
+      objectReference: {fileID: 0}
     - target: {fileID: 1194238346033176551, guid: e36939eae1abf8340a65a74fc4da5734,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 0
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 1194238346033176551, guid: e36939eae1abf8340a65a74fc4da5734,
         type: 3}
       propertyPath: m_textInfo.spaceCount
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1194238346033176551, guid: e36939eae1abf8340a65a74fc4da5734,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1194238346033176551, guid: e36939eae1abf8340a65a74fc4da5734,
         type: 3}
       propertyPath: m_textInfo.lineCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1194238346033176551, guid: e36939eae1abf8340a65a74fc4da5734,
         type: 3}
       propertyPath: m_textInfo.pageCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1194238346033176551, guid: e36939eae1abf8340a65a74fc4da5734,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1194238346033176551, guid: e36939eae1abf8340a65a74fc4da5734,
+        type: 3}
+      propertyPath: m_enableAutoSizing
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1194238346033176551, guid: e36939eae1abf8340a65a74fc4da5734,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e36939eae1abf8340a65a74fc4da5734, type: 3}
@@ -19054,7 +19099,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1939f7149c0fae14a891ac314cb2e8f3, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.145
+  m_Volume: 0.14
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -24295,7 +24340,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2101610952 stripped
 Transform:
@@ -25005,7 +25050,7 @@ PrefabInstance:
     - target: {fileID: 1443270159757543678, guid: f138686b91c1fb5418b32251e1fd6798,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1443270159757543678, guid: f138686b91c1fb5418b32251e1fd6798,
         type: 3}
@@ -25076,6 +25121,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3109687787520293600, guid: 8d79384b550589d498c55817e4277af2,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -25
+      objectReference: {fileID: 0}
     - target: {fileID: 3109687787520293607, guid: 8d79384b550589d498c55817e4277af2,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -25084,6 +25134,31 @@ PrefabInstance:
     - target: {fileID: 3109687787520293607, guid: 8d79384b550589d498c55817e4277af2,
         type: 3}
       propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3109687787520293607, guid: 8d79384b550589d498c55817e4277af2,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3109687787520293607, guid: 8d79384b550589d498c55817e4277af2,
+        type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3109687787520293607, guid: 8d79384b550589d498c55817e4277af2,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3109687787520293607, guid: 8d79384b550589d498c55817e4277af2,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3109687787520293607, guid: 8d79384b550589d498c55817e4277af2,
+        type: 3}
+      propertyPath: m_fontStyle
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3109687788032145145, guid: 8d79384b550589d498c55817e4277af2,
