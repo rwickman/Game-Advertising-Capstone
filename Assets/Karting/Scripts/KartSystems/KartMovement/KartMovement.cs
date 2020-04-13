@@ -122,7 +122,7 @@ namespace KartGame.KartSystems
             m_Rigidbody = GetComponent<Rigidbody> ();
             m_Capsule = GetComponent<CapsuleCollider> ();
             m_Racer = GetComponent<IRacer> ();
-
+           // m_HasControl = true;
             if (kart != null)
                 m_CurrentModifiers.Add ((IKartModifier)kart);
 

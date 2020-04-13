@@ -7,8 +7,7 @@ public class ExplodeShip : MonoBehaviour
     // Start is called before the first frame update
     public GameObject enemyShip;
     public GameObject explosion;
-
-    public GameObject friendLaser;
+    public List<GameObject> friendShip;
     
     private bool activatedExplosion;
     
@@ -25,8 +24,18 @@ public class ExplodeShip : MonoBehaviour
     {
         Destroy(enemyShip);
         explosion.SetActive(true);
-        yield return new WaitForSeconds(1f);
-        Destroy(friendLaser);
+        for (int i = 0; i < friendShip.Count; i++)
+        {
+            friendShip[i].transform.GetChild(0).gameObject.SetActive(false);
+            ShipMovment shipMovement = friendShip[i].GetComponent<ShipMovment>();
+            if (shipMovement != null)
+            {
+                friendShip[i].GetComponent<ShipMovment>().enabled = true;
+                friendShip[i].GetComponent<Ship>().enabled = false;
+            }
+            
+        }
+
         yield return new WaitForSeconds(10f);
         Destroy(explosion);
     }

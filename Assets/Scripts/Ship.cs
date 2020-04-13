@@ -15,14 +15,15 @@ public class Ship : MonoBehaviour
     private bool goingDown;
 
     private float randomThreshold;
-    void Start()
+
+
+    private void OnEnable()
     {
         initPos = transform.position;
         downPos = initPos + Vector3.down * yOffset;
         upPos = initPos + -Vector3.down * yOffset;
         // Add some randomization in their floating
         randomThreshold = Random.Range(0.5f, 1f);
-
     }
 
     // Update is called once per frame
