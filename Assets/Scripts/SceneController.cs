@@ -29,6 +29,7 @@ public class SceneController : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        print("LOADED");
         // Check if you loaded a playable level
         if (scene.name.Contains("Level"))
         {

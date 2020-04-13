@@ -70,7 +70,7 @@ namespace KartGame.Track
         IRacer m_Racer;
         StringBuilder m_StringBuilder = new StringBuilder(0, 300);
 
-        void Awake()
+        public void StartDisplay()
         {
             for (int i = 0; i < initialDisplayOptions.Count; i++)
             {

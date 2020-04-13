@@ -46,7 +46,6 @@ public class CollectableManager : MonoBehaviour
         // Get all tracks
         tracks = new List<Transform>();
         GetAllTracks(trackParent);
-        print(tracks.Count);
         FilterTracks();
 
         collectParent = new GameObject("Collectables");
@@ -60,7 +59,6 @@ public class CollectableManager : MonoBehaviour
         Shuffle(tracks);
 
         Vector3 capPos;
-        print(tracks.Count);
         for (int i = 0; i < Mathf.Min(capClustersPerLap, tracks.Count); i++)
         {
             if (tracks[i].name.Contains("Curve"))
@@ -214,8 +212,6 @@ public class CollectableManager : MonoBehaviour
             if (Physics.Raycast(collectables[i].transform.position, -Vector3.up, out hit, coinLayer))
             {
                 collectables[i].transform.position = new Vector3(collectables[i].transform.position.x, hit.point.y  + 1, collectables[i].transform.position.z);
-                print("HIT: " + hit.transform.name);
-                print(hit.transform.position.y);
             }
         }
     }

@@ -12,7 +12,7 @@ public class KartManager : MonoBehaviour
     public SceneData sceneData;
 
     SceneController sceneController;
-    
+    EndController endController;
 
     bool isVR = false;
     
@@ -28,6 +28,7 @@ public class KartManager : MonoBehaviour
         //print("InitLevel");
         GameObject trackManagerGO = GameObject.Find("TrackManager");
         GameObject displayGO = GameObject.Find("TimeDisplayCanvas");
+
 
         GameObject kartGO = null;
         Vector3 kartPos = Vector3.zero;
@@ -52,6 +53,7 @@ public class KartManager : MonoBehaviour
             kartGO.transform.position = kartPos;
         }
         
+        
         // Add kart references to classes that require it
         KartMovement movement = kartGO.GetComponent<KartMovement>();
         Racer racer = kartGO.GetComponent<Racer>();
@@ -63,9 +65,19 @@ public class KartManager : MonoBehaviour
 
         kartRepoTrig.SetMovable(movement);
         display.SetRacer(racer);
+        
 
         display.enabled = true;
         kartRepoTrig.enabled = true;
+
+        trackManagerGO.GetComponent<TrackManager>().StartTrackManager();
+        display.StartDisplay();
+        // Set the Racer for EndController
+        if (sceneName == "Level2")
+        {
+            endController = GameObject.Find("EndGameController").GetComponent<EndController>();
+            endController.playerRacer = racer;
+        }
     }
 
  

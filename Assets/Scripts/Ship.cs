@@ -14,7 +14,7 @@ public class Ship : MonoBehaviour
     
     private bool goingDown;
 
-    public float randomThreshold;
+    private float randomThreshold;
     void Start()
     {
         initPos = transform.position;

@@ -32,6 +32,7 @@ namespace KartGame.Track
         public bool IsRaceRunning => m_IsRaceRunning;
         public bool IsRaceStopped => m_IsRaceStopped;
 
+        public bool hitFirstCheckpoint;
 
         /// <summary>
         /// Returns the best lap time recorded this session.  If no record is found, -1 is returned.
@@ -110,7 +111,7 @@ namespace KartGame.Track
             }
         }
 
-        void Start ()
+        public void StartTrackManager ()
         {
             if(checkpoints.Count == 0)
                 return;
@@ -173,6 +174,10 @@ namespace KartGame.Track
             {
                 m_RacerNextCheckpoints[racer] = checkpoints.GetNextInCycle (checkpoint);
                 RacerHitCorrectCheckpoint (racer, checkpoint);
+                if(checkpoints.FindIndex(x => x == checkpoint) == 1)
+                {
+                    hitFirstCheckpoint = true;
+                }
             }
             else
             {
@@ -230,6 +235,7 @@ namespace KartGame.Track
                     StopRace ();
 
                 racer.HitStartFinishLine ();
+                hitFirstCheckpoint = false;
             }
         }
 
