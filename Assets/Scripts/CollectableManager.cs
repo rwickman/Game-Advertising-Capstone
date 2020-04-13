@@ -63,11 +63,11 @@ public class CollectableManager : MonoBehaviour
         {
             if (tracks[i].name.Contains("Curve"))
             {
-                capPos = tracks[i].position + Vector3.up * 0.5f;
+                capPos = tracks[i].position + Vector3.up * 2f;
             }
             else
             {
-                capPos = tracks[i].GetComponent<Renderer>().bounds.center + Vector3.up * 0.5f;
+                capPos = tracks[i].GetComponent<Renderer>().bounds.center + Vector3.up * 2f;
             }
 
             if (tracks[i].rotation.eulerAngles.y == 0 || Mathf.Abs(tracks[i].rotation.eulerAngles.y) == 180)
@@ -76,18 +76,44 @@ public class CollectableManager : MonoBehaviour
                 {
                     if (useGeneric)
                     {
+                        Quaternion rot;
+                        if (tracks[i].GetComponent<TrackDirection>().flipped)
+                        {
+                            rot = Quaternion.Euler(
+                                tracks[i].rotation.eulerAngles.x,
+                                tracks[i].rotation.eulerAngles.y + 180f,
+                                tracks[i].rotation.eulerAngles.z);
+                        }
+                        else
+                        {
+                            rot = Quaternion.Euler(tracks[i].rotation.eulerAngles);
+                        }
                         collectables.Add(
                             Instantiate(drThundeCapPrefab,
                                 capPos,
-                                drThundeCapPrefab.transform.rotation,
+                                rot,
                                 collectParent.transform));
                     }
                     else
                     {
+
+                        Quaternion rot;
+                        if (tracks[i].GetComponent<TrackDirection>().flipped)
+                        {
+                            rot = Quaternion.Euler(
+                                tracks[i].rotation.eulerAngles.x,
+                                tracks[i].rotation.eulerAngles.y + 180f,
+                                tracks[i].rotation.eulerAngles.z);
+                        }
+                        else
+                        {
+                            rot = Quaternion.Euler(tracks[i].rotation.eulerAngles);
+                        }
+
                         collectables.Add(
                             Instantiate(cokeCapPrefab,
                                 capPos,
-                                cokeCapPrefab.transform.rotation,
+                                rot,
                                 collectParent.transform));
                     }
                     capPos.z += clusterOffset;
@@ -99,18 +125,42 @@ public class CollectableManager : MonoBehaviour
                 {
                     if (useGeneric)
                     {
+                        Quaternion rot;
+                        if (tracks[i].GetComponent<TrackDirection>().flipped)
+                        {
+                            rot = Quaternion.Euler(
+                                tracks[i].rotation.eulerAngles.x,
+                                tracks[i].rotation.eulerAngles.y + 180f,
+                                tracks[i].rotation.eulerAngles.z);
+                        }
+                        else
+                        {
+                            rot = Quaternion.Euler(tracks[i].rotation.eulerAngles);
+                        }
                         collectables.Add(
                             Instantiate(drThundeCapPrefab,
                                 capPos,
-                                drThundeCapPrefab.transform.rotation,
+                                rot,
                                 collectParent.transform));
                     }
                     else
                     {
+                        Quaternion rot;
+                        if (tracks[i].GetComponent<TrackDirection>().flipped)
+                        {
+                            rot = Quaternion.Euler(
+                                tracks[i].rotation.eulerAngles.x,
+                                tracks[i].rotation.eulerAngles.y + 180f,
+                                tracks[i].rotation.eulerAngles.z);
+                        }
+                        else
+                        {
+                            rot = Quaternion.Euler(tracks[i].rotation.eulerAngles);
+                        }
                         collectables.Add(
                             Instantiate(cokeCapPrefab,
                                 capPos,
-                                cokeCapPrefab.transform.rotation,
+                                rot,
                                 collectParent.transform));
                     }
                     capPos.x += clusterOffset;
@@ -125,12 +175,17 @@ public class CollectableManager : MonoBehaviour
         {
             if (tracks[i].name.Contains("Curve"))
             {
-                coinPos = tracks[i].position + Vector3.up * 0.5f;
+                coinPos = tracks[i].position + Vector3.up * 2f;
             }
             else 
             {
-                coinPos = tracks[i].GetComponent<Renderer>().bounds.center + Vector3.up * 0.5f;
+                coinPos = tracks[i].GetComponent<Renderer>().bounds.center + Vector3.up * 2f;
             }
+
+            Quaternion rot = Quaternion.Euler(
+                coinPrefab.transform.rotation.eulerAngles.x,
+                tracks[i].rotation.eulerAngles.y + 90f,
+                coinPrefab.transform.rotation.eulerAngles.z);
 
             if (tracks[i].rotation.eulerAngles.y == 0 || Mathf.Abs(tracks[i].rotation.eulerAngles.y) == 180)
             {
@@ -139,7 +194,7 @@ public class CollectableManager : MonoBehaviour
                     collectables.Add(
                         Instantiate(coinPrefab,
                             coinPos,
-                            coinPrefab.transform.rotation,
+                            rot,
                             collectParent.transform));
                     coinPos.z += clusterOffset;
                 }
@@ -152,7 +207,7 @@ public class CollectableManager : MonoBehaviour
                     collectables.Add(
                         Instantiate(coinPrefab,
                             coinPos,
-                            coinPrefab.transform.rotation,
+                            rot,
                             collectParent.transform));
                     coinPos.x += clusterOffset;
                 }
