@@ -32,6 +32,7 @@ public class CollectableManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        useGeneric = GameObject.Find("GameManager").GetComponent<AdManager>().GetUseGeneric();
         collectables = new List<GameObject>();
         if (finishLine == null)
         {
