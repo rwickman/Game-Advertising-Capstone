@@ -9,13 +9,15 @@ public class EndController : MonoBehaviour
     public TrackManager trackManager;
     public Transform finishLine;
     public GameObject startPortal;
+    public GameObject billboardContents;
+    public Material billboardMat;
 
     public Transform endFinishLinePos;
 
     [HideInInspector] public Racer playerRacer;
 
     private bool setupEnd;
-    
+
     // Update is called once per frame
     void Update()
     {
@@ -23,11 +25,10 @@ public class EndController : MonoBehaviour
             trackManager.hitFirstCheckpoint
             && playerRacer.GetCurrentLap() == trackManager.raceLapTotal)
         {
-            // This needs to be delayed until maybe after a checkpoint is reached.
-            // It will cause the player to teleport before wanting to
             finishLine.position = endFinishLinePos.position;
             startPortal.SetActive(true);
-            setupEnd = true;   
+            billboardContents.GetComponent<MeshRenderer>().material = billboardMat;
+            setupEnd = true;
         }
     }
 }
