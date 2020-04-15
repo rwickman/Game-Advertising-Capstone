@@ -13,19 +13,26 @@ public class LevelManager : MonoBehaviour
 
     SceneController sceneController;
 
+    CutsceneController cutsceneController;
+
     void Start()
     {
         sceneController = GetComponent<SceneController>();
         sceneController.AddLoadCallback(SetTrackManager);
+        sceneController.AddLoadCallback(SetTimeline);
     }
 
     void Update()
     {
         if (curLevel != 0 && trackManager != null && trackManager.IsRaceStopped)
         {
-            print("LOADING SCENE");
-            trackManager = null;
-            sceneController.LoadScene(GetNextLevel());
+            cutsceneController.playCutscene();
+            if (!cutsceneController.isPlaying())
+            {
+                print("LOADING SCENE");
+                trackManager = null;
+                sceneController.LoadScene(GetNextLevel());
+            }
         }
     }
 
@@ -35,6 +42,15 @@ public class LevelManager : MonoBehaviour
         {
             trackManager = GameObject.Find("TrackManager").GetComponent<TrackManager>();
         }
+    }
+
+    void SetTimeline(string sceneName)
+    {
+        if (curLevel != 0)
+        {
+            cutsceneController = GameObject.Find("Timeline").GetComponent<CutsceneController>();
+        }
+
     }
 
     string GetNextLevel()
