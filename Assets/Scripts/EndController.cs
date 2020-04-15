@@ -10,7 +10,9 @@ public class EndController : MonoBehaviour
     public Transform finishLine;
     public GameObject startPortal;
     public GameObject billboardContents;
-    public Material billboardMat;
+    public Material cokeMat;
+    public Material drThunderMat;
+    public CollectableManager collectManager;
 
     public Transform endFinishLinePos;
 
@@ -25,9 +27,24 @@ public class EndController : MonoBehaviour
             trackManager.hitFirstCheckpoint
             && playerRacer.GetCurrentLap() == trackManager.raceLapTotal)
         {
-            finishLine.position = endFinishLinePos.position;
-            startPortal.SetActive(true);
-            billboardContents.GetComponent<MeshRenderer>().material = billboardMat;
+            if (finishLine != null)
+            {
+                finishLine.position = endFinishLinePos.position;
+            }
+            if (startPortal != null)
+            {
+                startPortal.SetActive(true);
+            }
+            
+            if (collectManager.useGeneric)
+            {
+                billboardContents.GetComponent<MeshRenderer>().material = drThunderMat;
+            }
+            else
+            {
+                billboardContents.GetComponent<MeshRenderer>().material = cokeMat;
+            }
+            
             setupEnd = true;
         }
     }

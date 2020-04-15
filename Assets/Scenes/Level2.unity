@@ -22973,7 +22973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2658db183643a804385a4743a7ea47d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flipped: 0
+  flipped: 1
 --- !u!1001 &1046465599
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23413,7 +23413,9 @@ MonoBehaviour:
   finishLine: {fileID: 1859468992}
   startPortal: {fileID: 1958455414}
   billboardContents: {fileID: 2067233275}
-  billboardMat: {fileID: 2100000, guid: a1ad3ae49887c4a45a00386da7903786, type: 2}
+  cokeMat: {fileID: 2100000, guid: a1ad3ae49887c4a45a00386da7903786, type: 2}
+  drThunderMat: {fileID: 2100000, guid: 0e7358e04b07783448b08b79be79a8cb, type: 2}
+  collectManager: {fileID: 2092514887}
   endFinishLinePos: {fileID: 1924557618}
   playerRacer: {fileID: 0}
 --- !u!4 &1086138042

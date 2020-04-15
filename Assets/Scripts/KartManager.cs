@@ -73,11 +73,8 @@ public class KartManager : MonoBehaviour
         trackManagerGO.GetComponent<TrackManager>().StartTrackManager();
         display.StartDisplay();
         // Set the Racer for EndController
-        if (sceneName == "Level2")
-        {
-            endController = GameObject.Find("EndGameController").GetComponent<EndController>();
-            endController.playerRacer = racer;
-        }
+        endController = GameObject.Find("EndGameController").GetComponent<EndController>();
+        endController.playerRacer = racer;
     }
 
  
