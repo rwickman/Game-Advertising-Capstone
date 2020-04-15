@@ -23460,6 +23460,58 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flipped: 0
+--- !u!1 &731402285
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 731402287}
+  - component: {fileID: 731402286}
+  m_Layer: 0
+  m_Name: EndGameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &731402286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 731402285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 261b99d0f37f9d4468007e735b3e1d6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trackManager: {fileID: 810926067}
+  finishLine: {fileID: 0}
+  startPortal: {fileID: 0}
+  billboardContents: {fileID: 1327672572}
+  cokeMat: {fileID: 2100000, guid: a1ad3ae49887c4a45a00386da7903786, type: 2}
+  drThunderMat: {fileID: 2100000, guid: 0e7358e04b07783448b08b79be79a8cb, type: 2}
+  collectManager: {fileID: 9097518078296258988}
+  endFinishLinePos: {fileID: 0}
+  playerRacer: {fileID: 0}
+--- !u!4 &731402287
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 731402285}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 16.015337, y: 2.9551682, z: 1.9999976}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 22
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &734971232
 GameObject:
   m_ObjectHideFlags: 0
@@ -35088,8 +35140,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: NewBillB
       objectReference: {fileID: 0}
+    - target: {fileID: 7059839584324699197, guid: 4124bf3d4b8e92146a620a638ac5a619,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a6014b2a6b0592949b0ccf4ecdaa000f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4124bf3d4b8e92146a620a638ac5a619, type: 3}
+--- !u!1 &1327672572 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1018988590098085804, guid: 4124bf3d4b8e92146a620a638ac5a619,
+    type: 3}
+  m_PrefabInstance: {fileID: 1327672571}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1334444050 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4126308969757231546, guid: ea87863efa0b941408cdd4b102308f4c,
@@ -45143,3 +45206,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c085e17d0c62774f9da7f8cf8381eb0, type: 3}
+--- !u!114 &9097518078296258988 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 317008931932736960, guid: 1c085e17d0c62774f9da7f8cf8381eb0,
+    type: 3}
+  m_PrefabInstance: {fileID: 9097518078296258987}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a03a785927c1a4e895b00bc084cd8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
