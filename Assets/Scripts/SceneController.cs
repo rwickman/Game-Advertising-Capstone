@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SceneController : MonoBehaviour
 {
@@ -16,20 +17,30 @@ public class SceneController : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            DontDestroyOnLoad(gameObject);
+            load = null;
+            SceneManager.sceneLoaded += OnSceneLoaded;
         }
-        else
+        else if (instance != this)
         {
+            // Have to reset this to the old gameManager as the currently reference the one in scene
+            GameObject.Find("StartVRButton").GetComponent<Button>().onClick.AddListener(
+                () => { instance.gameObject.GetComponent<KartManager>().SetIsVR(true); });
+            GameObject.Find("StartMobileButton").GetComponent<Button>().onClick.AddListener(
+                () => { instance.gameObject.GetComponent<KartManager>().SetIsVR(false); });
+            GameObject.Find("StartMobileButton").GetComponent<Button>().onClick.AddListener(
+                () => { instance.LoadScene("Level1"); });
+
+            // Destroy instance that is in this scene as you don't want duplciates
             Destroy(gameObject);
         }
-        DontDestroyOnLoad(this.gameObject);
-        load = null;
-        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        print("LOADED");
+        print("OnSceneLoaded " + instance);
+        //print(gameObject);
         // Check if you loaded a playable level
         if (scene.name.Contains("Level"))
         {

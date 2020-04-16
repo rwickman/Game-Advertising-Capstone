@@ -16,6 +16,7 @@ public class Countdown : MonoBehaviour
 
     private void Start()
     {
+        gameManager = GameObject.Find("GameManager");
         currentTime = startingTime;
     }
 
