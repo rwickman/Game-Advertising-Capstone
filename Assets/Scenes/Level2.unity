@@ -30773,7 +30773,7 @@ PrefabInstance:
     - target: {fileID: 5991087490704382741, guid: f29c8f9af0e64ab48a6c306b16e4a8fd,
         type: 3}
       propertyPath: m_SceneBindings.Array.size
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5991087490704382741, guid: f29c8f9af0e64ab48a6c306b16e4a8fd,
         type: 3}
@@ -30841,6 +30841,17 @@ PrefabInstance:
       propertyPath: m_SceneBindings.Array.data[6].value
       value: 
       objectReference: {fileID: 588256607}
+    - target: {fileID: 5991087490704382741, guid: f29c8f9af0e64ab48a6c306b16e4a8fd,
+        type: 3}
+      propertyPath: m_SceneBindings.Array.data[7].key
+      value: 
+      objectReference: {fileID: -3876345061358053215, guid: ef59465c823e959448bdf40fa6e69b5d,
+        type: 2}
+    - target: {fileID: 5991087490704382741, guid: f29c8f9af0e64ab48a6c306b16e4a8fd,
+        type: 3}
+      propertyPath: m_SceneBindings.Array.data[7].value
+      value: 
+      objectReference: {fileID: 1348019050}
     - target: {fileID: 6377345260507859207, guid: f29c8f9af0e64ab48a6c306b16e4a8fd,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -30879,7 +30890,7 @@ PrefabInstance:
     - target: {fileID: 7751499904472810060, guid: f29c8f9af0e64ab48a6c306b16e4a8fd,
         type: 3}
       propertyPath: events.Array.data[0].time
-      value: 7
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1344542117541120515, guid: f29c8f9af0e64ab48a6c306b16e4a8fd, type: 3}
@@ -30887,6 +30898,12 @@ PrefabInstance:
     - {fileID: 2489648052663460448, guid: f29c8f9af0e64ab48a6c306b16e4a8fd, type: 3}
     - {fileID: 7463576483890933258, guid: f29c8f9af0e64ab48a6c306b16e4a8fd, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f29c8f9af0e64ab48a6c306b16e4a8fd, type: 3}
+--- !u!1 &1348019050 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1221707498298954174, guid: f29c8f9af0e64ab48a6c306b16e4a8fd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1348019049}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1350770916
 PrefabInstance:
   m_ObjectHideFlags: 0
