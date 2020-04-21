@@ -8,12 +8,13 @@ using UnityEngine.Playables;
 /// </summary>
 public class CutsceneController : MonoBehaviour
 {
-
+    //Boolean to check if the cutsecene for the level has been played yet or not.
     bool played = false;
     PlayableDirector timeline;
     // Start is called before the first frame update
     void Start()
     {
+        //Get the scene timeline gameobject that has the playable director component that controls the cutscenes.
         timeline = GetComponent<PlayableDirector>();
     }
 
@@ -25,6 +26,7 @@ public class CutsceneController : MonoBehaviour
 
     public void playCutscene()
     {
+        //Only play if the cutscene is not currenlty playing and hasn't been played yet for the current scene
         if (!isPlaying() && !played)
         {
             timeline.Play();
@@ -32,6 +34,9 @@ public class CutsceneController : MonoBehaviour
         }
     }
 
+
+
+    //Check if the cutscene is currenlty playing or not.
     public bool isPlaying()
     {
         if (timeline.state == PlayState.Playing)
