@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 
+/// <summary>
+/// Switches back to none VR once looped back to title screen.
+/// </summary>
 public class Switch2D : MonoBehaviour
 {
     // Start is called before the first frame update

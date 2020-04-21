@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using KartGame.Track;
 
+/// <summary>
+/// This class controls the actions that should be taken at the end of the game.
+/// Handles creating the portal at level 2
+/// Handles swapping the advertisement on the billboard.
+/// </summary>
 public class EndController : MonoBehaviour
 {
 

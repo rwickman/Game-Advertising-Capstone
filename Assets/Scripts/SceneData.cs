@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// This stores the initial position of the kart in each level.
+/// </summary>
 [CreateAssetMenu(fileName = "SceneData", menuName = "ScriptableObjects/SceneData", order = 1)]
 public class SceneData : ScriptableObject
 {

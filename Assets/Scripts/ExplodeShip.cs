@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// The ExplodeShip component handles the animation of a spaceship exploding which is activated by a trigger collider.
+/// </summary>
 public class ExplodeShip : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -22,6 +25,7 @@ public class ExplodeShip : MonoBehaviour
 
     IEnumerator Explode()
     {
+        // Remove the exploding ship
         Destroy(enemyShip);
         explosion.SetActive(true);
         for (int i = 0; i < friendShip.Count; i++)

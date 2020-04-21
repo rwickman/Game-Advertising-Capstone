@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 
-
+/// <summary>
+/// This class switches to VR mode if VR is selected in the title screen.
+/// </summary>
 public class VRManager : MonoBehaviour
 {
     // Start is called before the first frame update

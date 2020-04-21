@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+/// <summary>
+///   The KartCollect compenent allows for collectables to be collected, and updates score.
+/// </summary>
 public class KartCollect : MonoBehaviour
 {
     public int score;

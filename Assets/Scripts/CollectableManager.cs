@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+///   The CollectableManager compenent spawns collectable GameObjects every lap.
+/// </summary>
 public class CollectableManager : MonoBehaviour
 {
 

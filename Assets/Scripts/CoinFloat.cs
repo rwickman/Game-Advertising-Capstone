@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This component is what allows for the coins to float at random different speeds. Makes them look more lively.
+/// </summary>
 public class CoinFloat : MonoBehaviour
 {
 

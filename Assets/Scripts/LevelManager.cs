@@ -3,10 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using KartGame.Track;
 
+/// <summary>
+/// This class handles what level is suppose to be transitioned to next.
+/// </summary>
 public class LevelManager : MonoBehaviour
 {
+    // The number of levels in the game
     public int numberOfLevels = 2;
 
+    // The current level.
+    // This is set to 1, because this is not incremented in the title screen.
     public int curLevel = 1;
 
     TrackManager trackManager;

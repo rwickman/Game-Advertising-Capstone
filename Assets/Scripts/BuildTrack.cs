@@ -2,8 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+///   The BuildTrack compenent was used to quickly create straight tracks.
+/// </summary>
 public class BuildTrack : MonoBehaviour
 {
+    /* */
     public GameObject straightTrack;
 
     public Vector3 initRampPos;

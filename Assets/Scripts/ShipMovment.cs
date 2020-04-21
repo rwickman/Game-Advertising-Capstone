@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// The ShipMovment component is what make the spaceships move between different positions and adjust their rotation accordingly.
+/// </summary>
 public class ShipMovment : MonoBehaviour
 {
     public Vector3[] targetPos;

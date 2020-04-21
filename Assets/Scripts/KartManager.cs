@@ -4,6 +4,9 @@ using KartGame.Track;
 using KartGame.KartSystems;
 using UnityEngine;
 
+/// <summary>
+///   The KartManager compenent is used to spawn the kart every level (racetrack).
+/// </summary>
 public class KartManager : MonoBehaviour
 {
 
@@ -22,7 +25,9 @@ public class KartManager : MonoBehaviour
         sceneController.AddLoadCallback(InitLevel);
     }
 
-
+    /// <summary>
+    ///   Instantiates the correct kart every level.
+    /// </summary>
     public void InitLevel(string sceneName)
     {
         //print("InitLevel");

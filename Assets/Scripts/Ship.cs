@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This class allows for procedural floating of the ships. It makes them look less static.
+/// </summary>
 public class Ship : MonoBehaviour
 {
     // Yes I know Ship and ShipMovement should be one script...

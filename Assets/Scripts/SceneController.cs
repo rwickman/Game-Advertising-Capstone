@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/// <summary>
+/// The SceneController is handles transitions between scenes and firing a delegate to perform operations required at the  beginning of a level loaded.
+/// </summary>
 public class SceneController : MonoBehaviour
 {
     public delegate void LevelLoaded(string sceneName);
@@ -36,7 +39,9 @@ public class SceneController : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// Fires subscribed methods if a racetrack is loaded.
+    /// </summary>
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         print("OnSceneLoaded " + instance);
