@@ -227,7 +227,6 @@ namespace KartGame.Track
                     {
                         collectableManager.RemoveCollectables();
                         collectableManager.PlaceCollectables();
-
                     }
                 }
 

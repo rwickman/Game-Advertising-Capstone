@@ -58,10 +58,10 @@ public class CollectableManager : MonoBehaviour
         FilterTracks();
 
         collectParent = new GameObject("Collectables");
+        // Set to collectable layer
+        collectParent.layer = 10;
         PlaceCollectables();
     }
-
-
 
     public void PlaceCollectables()
     {
@@ -222,7 +222,7 @@ public class CollectableManager : MonoBehaviour
                 }
             }
         }
-        AdjustCollectabls();
+        AdjustCollectables();
     }
 
 
@@ -232,7 +232,7 @@ public class CollectableManager : MonoBehaviour
         {
             if (collectable != null)
             {
-                Destroy(collectable);
+                Destroy(collectable);    
             }
         }
         collectables.Clear();
@@ -267,16 +267,23 @@ public class CollectableManager : MonoBehaviour
 
     }
 
-    private void AdjustCollectabls()
+    private void AdjustCollectables()
     {
+        StartCoroutine("Adjust");
+    }
+
+    IEnumerator Adjust()
+    {
+        yield return new WaitForSeconds(0.1f);
         RaycastHit hit;
         for (int i = 0; i < collectables.Count; i++)
         {
-
             if (Physics.Raycast(collectables[i].transform.position, -Vector3.up, out hit, coinLayer))
             {
-                collectables[i].transform.position = new Vector3(collectables[i].transform.position.x, hit.point.y  + 1, collectables[i].transform.position.z);
+                print(hit.transform.name);
+                collectables[i].transform.position = new Vector3(collectables[i].transform.position.x, hit.point.y + 1, collectables[i].transform.position.z);
             }
+            collectables[i].GetComponent<CoinFloat>().enabled = true;
         }
     }
 
