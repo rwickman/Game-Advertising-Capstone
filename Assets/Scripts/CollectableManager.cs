@@ -280,7 +280,7 @@ public class CollectableManager : MonoBehaviour
         {
             if (Physics.Raycast(collectables[i].transform.position, -Vector3.up, out hit, coinLayer))
             {
-                print(hit.transform.name);
+                //print(hit.transform.name);
                 collectables[i].transform.position = new Vector3(collectables[i].transform.position.x, hit.point.y + 1, collectables[i].transform.position.z);
             }
             collectables[i].GetComponent<CoinFloat>().enabled = true;

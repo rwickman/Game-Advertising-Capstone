@@ -149,6 +149,7 @@ namespace KartGame.Track
         /// </summary>
         public void StopRace ()
         {
+            print("Stopping Race");
             m_IsRaceRunning = false;
 
             foreach (KeyValuePair<IRacer, Checkpoint> racerNextCheckpoint in m_RacerNextCheckpoints)

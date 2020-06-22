@@ -44,7 +44,7 @@ public class SceneController : MonoBehaviour
     /// </summary>
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        print("OnSceneLoaded " + instance);
+        //print("OnSceneLoaded " + instance);
         //print(gameObject);
         // Check if you loaded a playable level
         if (scene.name.Contains("Level"))

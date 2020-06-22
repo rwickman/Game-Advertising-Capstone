@@ -32,7 +32,12 @@ public class LevelManager : MonoBehaviour
     {
         if (curLevel != 0 && trackManager != null && trackManager.IsRaceStopped)
         {
+            //print("Playing Cutscene");
+            //print(cutsceneController);
+
             cutsceneController.playCutscene();
+            
+            //print("Playing Cutscene After");
             if (!cutsceneController.isPlaying())
             {
                 print("LOADING SCENE");
