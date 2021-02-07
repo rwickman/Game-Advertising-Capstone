@@ -89,8 +89,8 @@ public class VRManager : MonoBehaviour
                 scoreCanvas.worldCamera = Camera.main;
                 scoreCanvasGO.transform.parent = Camera.main.transform;
                 RectTransform scoreRect = scoreCanvasGO.GetComponent<RectTransform>();
-                scoreRect.localScale *= 0.002f;
-                scoreRect.localPosition = new Vector3(0, 0, 2.85f);
+                scoreRect.localScale *= 0.003f;
+                scoreRect.localPosition = new Vector3(0, 0, 5.0f);
             }
         }
     }
