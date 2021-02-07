@@ -2070,7 +2070,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 43.7
+  m_fontSize: 30.35
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2897,7 +2897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 347c2385c608ebb4eb134dd3811d991a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingTime: 20
+  startingTime: 2
   countdownText: {fileID: 538021641}
   gameManager: {fileID: 1531878037}
 --- !u!114 &1967890636
